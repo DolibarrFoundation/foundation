@@ -40,7 +40,7 @@ DefaultPOSProductLabel=Marketplace product example
 DefaultMarketPlaceCustomersCatLabel=Marketplace customers
 DefaultMarketPlaceVendorsCatLabel=Marketplace sellers
 DefaultMarketPlacePreferredCustomersCatLabel=Marketplace preferred customers
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=No discount for members
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never discounts for this product
 
 ModuleVersion=Version
 DolibarrMin=Dolibarr min
