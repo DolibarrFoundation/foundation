@@ -196,6 +196,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/([a-z]{2})/([a-z\-]+)/([0-9]+)-([a-z0-9\-]+)\.html$ [NC]
 RewriteRule ^ /product.php?extid=%3 [L,R=301]
 
+RewriteCond %{REQUEST_URI} ^/([0-9]+)-([a-z0-9\-]+)\.html$ [NC]
+RewriteRule ^ /product.php?extid=%1 [L,R=301]
+
 # Categories rewrite rules
 RewriteCond %{REQUEST_URI} ^/([a-z]{2})/([0-9]{1,2})-([a-z\-]+)$ [NC]
 RewriteRule ^ /index.php?extcat=%2 [L,R=301]
