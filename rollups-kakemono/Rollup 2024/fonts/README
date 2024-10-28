@@ -1,0 +1,24 @@
+README (english)
+--------------------------------
+Font
+--------------------------------
+
+This directory contains informations on fonts used to build
+Dolibarr logos or documents.
+
+Logo, flyer and rollup use the following font(s):
+
+Font name: BAUHAUS 93
+
+How to install a font to be used by inkscape:
+* With Mac OS:  Might be available with MS Office suite. If not, copy
+                file into font directory.
+* With Windows: Might be available with MS Office suite. If not, copy
+                .TTF file into a /tmp/directory. Double click on file
+                then click on button "Install font".
+* With Ubuntu:  Copy .TTF file into a /tmp/directory. Double click on
+                file then click on button "Install font".
+
+More information on fonts origin can be found 
+on https://www.identifont.com/find?font=bauhaus+93&q=Go 
+or on https://en.wikipedia.org/wiki/Bauhaus_93
