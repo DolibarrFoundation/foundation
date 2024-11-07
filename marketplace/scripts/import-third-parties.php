@@ -566,6 +566,7 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 					break;
 			};
 			$customer->civility_id = $civility;
+			$customer->email = $obj->email;
 
 			$ret_setindividual = $customer->create_individual($user);
 			if ($ret_setindividual < 0) {
@@ -575,6 +576,7 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 				//$error++;
 				//exit();
 			} else {
+				$currentContactId = $ret_setindividual;
 				print " - set individual OK";
 			}
 
@@ -681,6 +683,9 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 				$objsqlaccount = $db->fetch_object($resqlaccount);
 				if (!empty($objsqlaccount->rowid)) {
 					print " - This third party email already exists as a login account";
+					// Link contact to customer account for update
+					$sql = 'UPDATE ' . MAIN_DB_PREFIX . "socpeople  SET ref_ext = '" . $objsqlaccount->rowid . "', note_private = 'Marketplace contact for account ID : " . $objsqlaccount->rowid . "' WHERE rowid = " . ((int) $currentContactId);
+					$db->query($sql);
 				} else {
 					$societeaccount = new SocieteAccount($db);
 					$societeaccount->login = $obj->email;
@@ -701,6 +706,9 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 						//exit();
 					} else {
 						print " - Create account OK";
+						// Link contact to customer account
+						$sql = 'UPDATE ' . MAIN_DB_PREFIX . "socpeople  SET ref_ext = '" . $ret_account . "', note_private = 'Marketplace contact for account ID : " . $ret_account . "' WHERE rowid = " . ((int) $currentContactId);
+						$db->query($sql);
 					}
 				}
 			}

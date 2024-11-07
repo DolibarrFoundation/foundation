@@ -26,7 +26,10 @@ if (empty($mode)) {
 
 $connect = mysqli_connect(_DB_SERVER_, _DB_USER_, _DB_PASSWD_, _DB_NAME_);
 
-$sql = 'SELECT id_product_download, filename, display_filename FROM ps_product_download';
+//$sql = 'SELECT id_product_download, filename, display_filename FROM ps_product_download';
+//$sql = 'SELECT id_product_download, filename, display_filename FROM ps_product_download_backup';
+$sql = 'SELECT id_product_download, ppd.id_product, display_filename, ppd.filename, ppd.date_add, ppd.active, id_supplier, pp.reference
+FROM ps_product_download as ppd LEFT JOIN ps_product as pp ON ppd.id_product = pp.id_product';
 
 $resql = mysqli_query($connect, $sql);
 
@@ -46,6 +49,8 @@ if ($resql) {
 		print 'Failed to find existing files in database.'."\n";
 	}
 
+	dol_mkdir('/home/dolibarr/dolistore.com/archivemodules/');
+
 	print 'Scan dir /home/dolibarr/dolistore.com/httpdocs/download'."\n";
 	$files = scandir('/home/dolibarr/dolistore.com/httpdocs/download');
 	foreach($files as $file) {
@@ -53,13 +58,19 @@ if ($resql) {
 			// Search key
 			$key = array_search($file, $arrayoffiles);
 			print 'File '.$file.' exists in database for module '.$arrayoflabel[$key]."\n";
+			if ($mode == 'confirm') {
+				copy('/home/dolibarr/dolistore.com/httpdocs/download/'.$file, '/home/dolibarr/dolistore.com/archivemodules/'.$arrayoflabel[$key].'-'.$file.'.zip');
+			} else {
+				print " -> Disabled in test mode.\n";
+			}
 			$nbfound++;
 		} elseif (preg_match('/^[a-f0-9]+$/', $file)) {
 			print 'File '.$file.' is not into database, we delete it.';
 			$nbnotfound++;
 			//unlink('/home/dolibarr/dolistore.com/httpdocs/download/'.$file);
 			if ($mode == 'confirm') {
-				rename('/home/dolibarr/dolistore.com/httpdocs/download/'.$file, '/tmp/old/'.$file);
+				copy('/home/dolibarr/dolistore.com/httpdocs/download/'.$file, '/tmp/old/'.$file);
+				rename('/home/dolibarr/dolistore.com/httpdocs/download/'.$file, '/home/dolibarr/dolistore.com/archivemodules/'.$file.'.zip');
 				print " -> Done\n";
 			} else {
 				print " -> Disabled in test mode.\n";

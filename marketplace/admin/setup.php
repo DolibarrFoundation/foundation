@@ -177,6 +177,7 @@ $formSetup->newItem('MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID')->setAsCategory(
 $dicountValue = $formSetup->newItem('MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT');
 $dicountValue->defaultFieldValue = '20';
 $dicountValue->fieldAttr['placeholder'] = '%';
+$dicountValue->cssClass = 'width40';
 
 // Setup conf for products category to exclude from discounts
 $formSetup->newItem('MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID')->setAsCategory('product');
@@ -208,13 +209,13 @@ $formSetup->newItem('MARKETPLACE_BLOCK_SALES')->setAsYesNo();
 // Setup conf for email templates
 $formSetup->newItem('EMailTemplates')->setAsTitle();
 
-$formSetup->newItem('MARKETPLACE_WELCOME_EMAIL_TEMPLATE')->setAsEmailTemplate('all');
+$formSetup->newItem('MARKETPLACE_WELCOME_EMAIL_TEMPLATE')->setAsEmailTemplate('thirdparty');
 
-$formSetup->newItem('MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE')->setAsEmailTemplate('all');
+$formSetup->newItem('MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE')->setAsEmailTemplate('thirdparty');
 
-$formSetup->newItem('MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE')->setAsEmailTemplate('all');
+$formSetup->newItem('MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE')->setAsEmailTemplate('order_send');
 
-$formSetup->newItem('MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE')->setAsEmailTemplate('all');
+$formSetup->newItem('MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE')->setAsEmailTemplate('order_send');
 
 
 /*

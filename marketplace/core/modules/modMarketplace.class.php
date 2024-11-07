@@ -702,7 +702,6 @@ class modMarketplace extends DolibarrModules
 					dolibarr_del_const($this->db, 'MARKETPLACE_WELCOME_EMAIL_TEMPLATE', $conf->entity);
 				} else {
 					$this->error = $this->db->lasterror();
-					dol_print_error($this->db, $this->error);
 				}
 			}
 			if (!empty(getDolGlobalInt("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE"))) {
@@ -712,7 +711,6 @@ class modMarketplace extends DolibarrModules
 					dolibarr_del_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $conf->entity);
 				} else {
 					$this->error = $this->db->lasterror();
-					dol_print_error($this->db, $this->error);
 				}
 			}
 			if (!empty(getDolGlobalInt("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"))) {
@@ -722,7 +720,6 @@ class modMarketplace extends DolibarrModules
 					dolibarr_del_const($this->db, 'MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE', $conf->entity);
 				} else {
 					$this->error = $this->db->lasterror();
-					dol_print_error($this->db, $this->error);
 				}
 			}
 			if (!empty(getDolGlobalInt("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE"))) {
@@ -732,67 +729,75 @@ class modMarketplace extends DolibarrModules
 					dolibarr_del_const($this->db, 'MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE', $conf->entity);
 				} else {
 					$this->error = $this->db->lasterror();
-					dol_print_error($this->db, $this->error);
 				}
 			}
 		}
 
-		$emailAction = ($action == 'reload') ? 'reloaded' : 'loaded';
+		require_once DOL_DOCUMENT_ROOT.'/core/class/html.formmail.class.php';
+		$tmpmailtemplate = new ModelMail($this->db);
 
 		// Create MARKETPLACE_WELCOME_EMAIL_TEMPLATE
-		if (empty(getDolGlobalInt("MARKETPLACE_WELCOME_EMAIL_TEMPLATE"))) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'all', null, 0, 110, '__(welcomeTo)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceWelcomeEmailContent)__', 1, 1, 1);";
+		$id_template = $tmpmailtemplate->fetch(0, '(welcomeToMarketplace)');
+		if ($id_template <= 0) {
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 110, '__(welcomeTo)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceWelcomeEmailContent)__', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
-				dolibarr_set_const($this->db, 'MARKETPLACE_WELCOME_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of welcome email template', $conf->entity);
-				setEventMessages($langs->trans("emailTemplateLoaded", $langs->trans("MARKETPLACE_WELCOME_EMAIL_TEMPLATE"), $emailAction), null, 'warnings');
 			} else {
 				$this->error = $this->db->lasterror();
-				dol_print_error($this->db, $this->error);
 			}
+		}
+		if (!getDolGlobalInt("MARKETPLACE_WELCOME_EMAIL_TEMPLATE") && $id_template > 0) {
+			dolibarr_set_const($this->db, 'MARKETPLACE_WELCOME_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of welcome email template', $conf->entity);
+			//setEventMessages($langs->trans("emailTemplateLoaded", $langs->transnoentitiesnoconv("MARKETPLACE_WELCOME_EMAIL_TEMPLATE"), $emailAction), null, 'warnings');
 		}
 
 		// Create MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE
-		if (empty(getDolGlobalInt("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE"))) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(resetPasswordMarketplace)', '', 'marketplace', 'all', null, 0, 120, '__(passwordResetRequest)__ [__[MAIN_INFO_SOCIETE_NOM]__]', null, 0, 0,'__(marketplaceResetPasswordEmailContent)__', 1, 1, 1);";
+		$id_template = $tmpmailtemplate->fetch(0, '(resetPasswordMarketplace)');
+		if ($id_template <= 0) {
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(resetPasswordMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 120, '__(passwordResetRequest)__ [__[MAIN_INFO_SOCIETE_NOM]__]', null, 0, 0,'__(marketplaceResetPasswordEmailContent)__', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
-				dolibarr_set_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of forgot password email template', $conf->entity);
-				setEventMessages($langs->trans("emailTemplateLoaded", $langs->trans("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE"), $emailAction), null, 'warnings');
 			} else {
 				$this->error = $this->db->lasterror();
-				dol_print_error($this->db, $this->error);
 			}
+		}
+		if (!getDolGlobalInt("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE") && $id_template > 0) {
+			dolibarr_set_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of forgot password email template', $conf->entity);
+			//setEventMessages($langs->trans("emailTemplateLoaded", $langs->transnoentitiesnoconv("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE"), $emailAction), null, 'warnings');
 		}
 
 		// Create MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE
-		if (empty(getDolGlobalInt("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"))) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(BuyerOrderConfirmation)', '', 'marketplace', 'all', null, 0, 140, '__(BuyerOrderConfirmation)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceBuyerOrderConfirmationContent)__', 1, 1, 1);";
+		$id_template = $tmpmailtemplate->fetch(0, '(BuyerOrderConfirmation)');
+		if ($id_template <= 0) {
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(BuyerOrderConfirmation)', '', 'marketplace', 'order_send', null, 0, 140, '__(BuyerOrderConfirmation)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceBuyerOrderConfirmationContent)__', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
-				dolibarr_set_const($this->db, 'MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE', $id_template, 'chaine', 0, 'Name of buyer order confirmation email template', $conf->entity);
-				setEventMessages($langs->trans("emailTemplateLoaded", $langs->trans("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"), $emailAction), null, 'warnings');
 			} else {
 				$this->error = $this->db->lasterror();
-				dol_print_error($this->db, $this->error);
 			}
+		}
+		if (!getDolGlobalInt("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE") && $id_template > 0) {
+			dolibarr_set_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of forgot password email template', $conf->entity);
+			//setEventMessages($langs->trans("emailTemplateLoaded", $langs->transnoentitiesnoconv("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"), $emailAction), null, 'warnings');
 		}
 
 		// Create MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE
-		if (empty(getDolGlobalInt("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE"))) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(SellerOrderNotification)', '', 'marketplace', 'all', null, 0, 130, '__(SellerOrderNotification)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceSellersOrderConfirmationContent)__', 1, 1, 1);";
+		$id_template = $tmpmailtemplate->fetch(0, '(SellerOrderNotification)');
+		if ($id_template <= 0) {
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(SellerOrderNotification)', '', 'marketplace', 'order_send', null, 0, 130, '__(SellerOrderNotification)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceSellersOrderConfirmationContent)__', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
-				dolibarr_set_const($this->db, 'MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE', $id_template, 'chaine', 0, 'Name of sellers order confirmation email template', $conf->entity);
-				setEventMessages($langs->trans("emailTemplateLoaded", $langs->trans("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE"), $emailAction), null, 'warnings');
 			} else {
 				$this->error = $this->db->lasterror();
-				dol_print_error($this->db, $this->error);
 			}
+		}
+		if (!getDolGlobalInt("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE") && $id_template > 0) {
+			dolibarr_set_const($this->db, 'MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE', $id_template, 'chaine', 0, 'Name of sellers order confirmation email template', $conf->entity);
+			//setEventMessages($langs->trans("emailTemplateLoaded", $langs->transnoentitiesnoconv("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE"), $emailAction), null, 'warnings');
 		}
 
 		// Create default website
@@ -829,7 +834,7 @@ class modMarketplace extends DolibarrModules
 
 		if (empty(getDolGlobalInt("MARKETPLACE_WEBSITE_ID"))) {
 			$website = new Website($this->db);
-			
+
 			// Get free ref for insert
 			$baseRef = "marketplace";
 			$ref = $baseRef;
@@ -843,7 +848,7 @@ class modMarketplace extends DolibarrModules
 			// Create a website for marketplace module
 			$website = new Website($this->db);
 			$website->ref = $ref;
-			$website->description = $langs->trans("marketplaceDesc", $conf->global->MAIN_INFO_SOCIETE_NOM);		
+			$website->description = $langs->trans("marketplaceDesc", getDolGlobalString('MAIN_INFO_SOCIETE_NOM'));
 			$website->lang = $langs->getDefaultLang();
 			if (getDolGlobalInt('MAIN_MULTILANGS')) {
 				$website->otherlang = "en,fr,de,it,es";
@@ -865,14 +870,14 @@ class modMarketplace extends DolibarrModules
 				} else {
 					// Force mode dynamic on
 					dolibarr_set_const($this->db, 'WEBSITE_SUBCONTAINERSINLINE', 1, 'chaine', 0, '', $conf->entity);
-					
+
 					dolibarr_set_const($this->db, 'MARKETPLACE_WEBSITE_ID', $website_id, 'chaine', 0, 'Marketplace website id', $conf->entity);
 
 					setEventMessages($langs->trans("templateImported", $website->ref), null, 'warnings');
 
 					// TODO Create welcome page AND Static pages
 				}
-				
+
 			}
 		}
 
