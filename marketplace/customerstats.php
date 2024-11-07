@@ -116,6 +116,11 @@ $head[$h][1] = $langs->trans("productsStatsMarketplace");
 $head[$h][2] = 'productsStatsMarketplace';
 $h++;
 
+$head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/salesstats.php';
+$head[$h][1] = $langs->trans("ListOfSalesMarketplace");
+$head[$h][2] = 'ListOfSalesMarketplace';
+$h++;
+
 
 print dol_get_fiche_head($head, 'customersStatsMarketplace', '', -1);
 

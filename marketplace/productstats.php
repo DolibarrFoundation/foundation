@@ -130,20 +130,25 @@ restrictedArea($user, 'produit|service', 0, 'product&product', '', '');
  $h = 0;
  $head = array();
  
- $head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/marketplaceindex.php';
- $head[$h][1] = $langs->trans("invoicesStatsMarketplace");
- $head[$h][2] = 'invoicesStatsMarketplace';
- $h++;
- 
- $head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/customerstats.php';
- $head[$h][1] = $langs->trans("customersStatsMarketplace");
- $head[$h][2] = 'customersStatsMarketplace';
- $h++;
- 
- $head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/productstats.php';
- $head[$h][1] = $langs->trans("productsStatsMarketplace");
- $head[$h][2] = 'productsStatsMarketplace';
- $h++;
+$head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/marketplaceindex.php';
+$head[$h][1] = $langs->trans("invoicesStatsMarketplace");
+$head[$h][2] = 'invoicesStatsMarketplace';
+$h++;
+
+$head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/customerstats.php';
+$head[$h][1] = $langs->trans("customersStatsMarketplace");
+$head[$h][2] = 'customersStatsMarketplace';
+$h++;
+
+$head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/productstats.php';
+$head[$h][1] = $langs->trans("productsStatsMarketplace");
+$head[$h][2] = 'productsStatsMarketplace';
+$h++;
+
+$head[$h][0] = DOL_URL_ROOT.'/custom/marketplace/salesstats.php';
+$head[$h][1] = $langs->trans("ListOfSalesMarketplace");
+$head[$h][2] = 'ListOfSalesMarketplace';
+$h++;
  
  
  print dol_get_fiche_head($head, 'productsStatsMarketplace', '', -1);

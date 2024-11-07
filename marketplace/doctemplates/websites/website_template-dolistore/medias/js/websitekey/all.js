@@ -431,8 +431,9 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).ready(function($) {
-    $('#thumbs_list_frame li a img').hover(function() {
-        var url = $(this).attr('src');
+    $('#thumbs_list_frame li a').on('mouseenter', function() {
+        var url = $(this).find('img').attr('src');
+        
         $('#bigpic').attr('src', url);
         $('#view_large_button').attr('href', url);
         $('#view_large_button').attr('src', url);
