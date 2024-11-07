@@ -203,6 +203,8 @@ $itemforwebsiteid->fieldAttr['placeholder'] = '';
 
 $formSetup->newItem('MARKETPLACE_SECRET_KEY')->helpText = $langs->trans("MARKETPLACE_SECRET_KEY_HELP");
 
+$formSetup->newItem('MARKETPLACE_BLOCK_SALES')->setAsYesNo();
+
 
 // Setup conf for email templates
 $formSetup->newItem('EMailTemplates')->setAsTitle();
