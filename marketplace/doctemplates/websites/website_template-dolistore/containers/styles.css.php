@@ -8927,6 +8927,17 @@ button[disabled], html input[disabled] {
 #languages-block-top {
   max-width: 33.33% !important;
 }
+.block-sells-notification {
+  padding: 15px;
+  border: 1px solid #e74c3c;
+  background-color: #fdecea;
+  color: #e74c3c;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
 <?php // BEGIN PHP
 $tmp = ob_get_contents(); ob_end_clean(); dolWebsiteOutput($tmp, "css");
 // END PHP
