@@ -3447,6 +3447,8 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #fbfbfb;
+  height: 100%;
+  background: #fff;
 }
 .bodywebsite #thumbs_list li a.shown,
 .bodywebsite #thumbs_list li a:hover {
@@ -3875,7 +3877,7 @@ body {
   text-align: center;
 }
 .bodywebsite .icon-cart-plus::before {
-  content: "\f217";
+  content: "\f07a";
 }
 .bodywebsite #quantity_wanted_p .btn {
   float: left;
@@ -4777,7 +4779,7 @@ body {
 .bodywebsite .top-pagination-content div.pagination .showall,
 .bodywebsite .bottom-pagination-content div.pagination .showall {
   float: right;
-  margin: 8px 53px 8px 14px;
+  margin: 8px 0px 8px 14px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .bodywebsite .top-pagination-content div.pagination .showall,
@@ -5623,6 +5625,7 @@ body {
 .bodywebsite #lightbox img {
   box-shadow: 0 0 25px #111;
   max-width: 700px;
+  background-color: #fff;
 }
 .bodywebsite #facebook_block,
 .bodywebsite #cmsinfo_block {
@@ -8926,6 +8929,65 @@ button[disabled], html input[disabled] {
 }
 #languages-block-top {
   max-width: 33.33% !important;
+}
+.block-sells-notification {
+  padding: 15px;
+  border: 1px solid #e74c3c;
+  background-color: #fdecea;
+  color: #e74c3c;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.shop-container {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  border-top: none;
+}
+.shop-image {
+  position: relative;
+  overflow: hidden;
+}
+.shop-image img {
+  width: 100%;
+  display: block;
+}
+.shop-button {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ff5f57;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 5px 15px rgba(255, 95, 87, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.shop-overlay:hover .shop-button {
+  background-color: #e54b45;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.shop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 <?php // BEGIN PHP
 $tmp = ob_get_contents(); ob_end_clean(); dolWebsiteOutput($tmp, "css");
