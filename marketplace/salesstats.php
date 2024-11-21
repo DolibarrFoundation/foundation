@@ -281,7 +281,11 @@ $sql .= "
 $sql .= "
     LEFT JOIN " . MAIN_DB_PREFIX . "paiement_facture AS pf ON pf.fk_facture = f_order.rowid
     LEFT JOIN " . MAIN_DB_PREFIX . "paiement AS pyt ON pf.fk_paiement = pyt.rowid
-    LEFT JOIN " . MAIN_DB_PREFIX . "c_paiement AS cp ON pyt.fk_paiement = cp.id
+    LEFT JOIN " . MAIN_DB_PREFIX . "c_paiement AS cp ON cp.id = 
+			CASE 
+				WHEN pyt.fk_paiement IS NOT NULL THEN pyt.fk_paiement 
+				ELSE c.fk_mode_reglement 
+			END
 ";
 
 // Filtering conditions for valid orders
