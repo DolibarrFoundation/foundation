@@ -289,7 +289,7 @@ $sql .= "
     WHERE d.total_ht != 0 
     AND c.fk_statut IN (1, 3)
     AND (c.facture = 1 OR c.ref_ext IS NOT NULL)
-	AND f_order.type = 0
+	AND (f_order.type = 0 OR f_credit.type IS NULL)
     AND c.module_source = 'Marketplace'
 ";
 

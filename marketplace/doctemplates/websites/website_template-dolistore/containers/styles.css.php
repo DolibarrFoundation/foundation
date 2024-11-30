@@ -8941,6 +8941,7 @@ button[disabled], html input[disabled] {
   margin-bottom: 30px;
   text-transform: uppercase;
 }
+
 .shop-container {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -8989,6 +8990,7 @@ button[disabled], html input[disabled] {
   justify-content: center;
   align-items: center;
 }
+
 <?php // BEGIN PHP
 $tmp = ob_get_contents(); ob_end_clean(); dolWebsiteOutput($tmp, "css");
 // END PHP
