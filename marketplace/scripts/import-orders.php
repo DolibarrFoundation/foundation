@@ -186,6 +186,15 @@ if ($result_all_orders = $conn->query($delete_orders_query)) {
 	}
 }
 
+// Load Dolibarr payment methods
+$dolibarrPaymentMethods = array();
+$sql = "SELECT id, code FROM " . $db->prefix() . "c_paiement WHERE entity IN (" . getEntity('c_paiement') . ")";
+$resql = $db->query($sql);
+if ($resql && $db->num_rows($resql) > 0) {
+    while ($obj = $db->fetch_object($resql)) {
+        $dolibarrPaymentMethods[$obj->code] = $obj->id;
+    }
+}
 
 $orders_querry = "
 	SELECT
@@ -201,7 +210,16 @@ $orders_querry = "
 			WHEN COALESCE(ROUND(((o.total_discounts_tax_incl - o.total_discounts_tax_excl) / o.total_discounts_tax_excl) * 100, 1), 0) BETWEEN 19.8 AND 20.2 THEN 20
 			ELSE 0
 		END AS remise_tva_rate,
-		o.payment,
+		CASE
+			WHEN o.module = 'bankwire' THEN 'VIR'
+			WHEN o.module = 'cheque' THEN 'CHQ'
+			WHEN o.module = 'paypal' THEN 'PAY'
+			WHEN o.module = 'stripe_official' THEN 'CB'
+			WHEN o.module = 'systempay' THEN 'CB'
+			WHEN o.module = 'vads' THEN 'CB'
+			WHEN o.module = 'paypalapi' THEN 'PAY'
+			ELSE ''
+		END AS payment_module,
 		o.date_add,
 		c.id_customer,
 		c.firstname,
@@ -258,6 +276,11 @@ if ($result_orders = $conn->query($orders_querry)) {
 		$com->date           = $obj->date_add;
 		$com->note_private   = 'Order imported from old Dolistore old_id : ' . $obj->id_order;
 		$com->module_source  = 'Marketplace';
+		// Add payment module
+		if (isset($obj->payment_module) && array_key_exists($obj->payment_module, $dolibarrPaymentMethods)) {
+			$com->mode_reglement_id = $dolibarrPaymentMethods[$obj->payment_module];
+		}
+		
 		$com->import_key = dol_print_date($now, 'dayhourlog');
 
 		$result = $com->create($user);
