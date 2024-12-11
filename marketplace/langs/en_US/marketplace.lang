@@ -218,3 +218,16 @@ goodiesPageTitle=Goodies of Dolibarr project - DoliStore
 goodiesPageKeywords=goodies
 goodiesPageDescription=Goodies of Dolibarr project
 goodiesbuttonTitle=Visit Our Goodies Store
+otherSetups=Other setups
+MARKETPLACE_MINIMUM_PAYOUT_AMOUNT= Minimum payout amount for vendors
+ProductAddedSuccessfully=Product successfully added to your shopping cart
+OneItemInCart=There is one item in your cart.
+NbreProductsInCart=There are <span class="ajax_cart_quantity"> %s </span> items in your cart.
+TotalProductsInCart=Total products (tax incl.)
+ContinueShopping=Continue shopping
+ProceedToCheckout=Proceed to checkout
+priceDependCountry=Prices may vary depending on your country.
+cartCheckout=Check out
+PhotoViewLarger=View larger
+moreInfo=More info
+products=Products

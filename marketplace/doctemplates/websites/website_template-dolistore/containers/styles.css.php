@@ -6565,10 +6565,10 @@ input[type="checkbox"]:focus {
 .pull-right {
   float: right !important;
 }
-.hidden {
+/*.hidden {
   display: none !important;
   visibility: hidden !important;
-}
+}*/
 [class^="icon-"] {
   font-family: FontAwesome;
   font-weight: normal;
@@ -8941,7 +8941,6 @@ button[disabled], html input[disabled] {
   margin-bottom: 30px;
   text-transform: uppercase;
 }
-
 .shop-container {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -8990,7 +8989,29 @@ button[disabled], html input[disabled] {
   justify-content: center;
   align-items: center;
 }
+.btn.btn-default.btn-lg.btn-add-to-cart-product {
+  background-image: linear-gradient(to bottom, #009ad0 0%, #007ab7 100%);
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 0px !important;
+  text-shadow: 0 1px #015883;
+  border-top: 1px solid #0079b6;
+  border-right: 1px solid #006fa8;
+  border-left: 1px solid #006fa8;
+  border-bottom: 1px solid #012740;
+}
+.btn.btn-default.btn-lg.btn-add-to-cart-product:hover {
+  background-image: linear-gradient(#007ab7,#009ad0);
+}
 
+.btn.btn-default.btn-lg.btn-add-to-cart-product p {
+  border-top: 1px solid #006fa8;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+.centpercent.websitebar {
+  width: 100% !important;
+}
 <?php // BEGIN PHP
 $tmp = ob_get_contents(); ob_end_clean(); dolWebsiteOutput($tmp, "css");
 // END PHP

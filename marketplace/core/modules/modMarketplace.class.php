@@ -881,6 +881,10 @@ class modMarketplace extends DolibarrModules
 			}
 		}
 
+		if (!getDolGlobalInt("MARKETPLACE_MINIMUM_PAYOUT_AMOUNT")) {
+			dolibarr_set_const($this->db, 'MARKETPLACE_MINIMUM_PAYOUT_AMOUNT', '50' , 'chaine', 0, 'Marketplace minimum payout amount for vendors', $conf->entity);
+		}
+
 		/*
 		// Create cash account CASH-POS / DefaultCashPOSLabel if not exists
 		if (!getDolGlobalInt('MARKETPLACE_ID_BANKACCOUNT_CASH')) {

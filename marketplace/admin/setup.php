@@ -145,7 +145,7 @@ $item->setAsMultiSelect($TField);
 $item->helpText = $langs->transnoentities('MARKETPLACE_MYPARAM10');
 */
 
-$formSetup->newItem('Products')->setAsTitle();
+$formSetup->newItem('products')->setAsTitle();
 
 // Setup conf for root category of proucts to sell
 $formSetup->newItem('MARKETPLACE_ROOT_CATEGORY_ID')->setAsCategory('product');
@@ -217,6 +217,10 @@ $formSetup->newItem('MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE')->setAsEmail
 
 $formSetup->newItem('MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE')->setAsEmailTemplate('order_send');
 
+// Setup conf others
+$formSetup->newItem('otherSetups')->setAsTitle();
+$itemMinimumAmountForPayment = $formSetup->newItem('MARKETPLACE_MINIMUM_PAYOUT_AMOUNT');
+$itemMinimumAmountForPayment->defaultFieldValue = '50';
 
 /*
 // Setup conf MARKETPLACE_MYPARAM10
