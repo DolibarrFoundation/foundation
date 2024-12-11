@@ -1,18 +1,3 @@
-# Copyright (C) 2024 Alice Adminson
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 #
 # Generic
 #
@@ -40,6 +25,7 @@ MARKETPLACE_WEBSITE_ID=Für den Marktplatz zu verwendende Website
 MARKETPLACE_WEBSITE_ID_HELP=Alle von der Marktplatz-Website erstellten Benutzer, Kunden, Bestellungen usw. werden mit dieser Website verknüpft.<br><br><b>Wichtig:</b> Wenn Sie diesen Wert ändern, bleiben bestehende Benutzer, Kunden und Bestellungen mit der alten Website verknüpft und werden nicht auf die neue migriert.
 MARKETPLACE_SECRET_KEY=Schlüssel zur Prestashop 1.6-Passwortverschlüsselung
 MARKETPLACE_SECRET_KEY_HELP=Wenn einige Benutzer von der Prestashop 1.6-Migration migriert wurden, ist dies der Prestashop-Cookie-Schlüssel, der zur Validierung des Kennworts verwendet wird.
+MARKETPLACE_BLOCK_SALES=Blockverkäufe auf dem Marktplatz
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Kategorie für alle Interessenten oder Kunden, die als „Bevorzugt“ gekennzeichnet sind oder für den Rabatt qualifiziert sind
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Rabattprozentsatz für „bevorzugte“ Interessenten oder Kunden
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Kategorie für Produkte, die vom Rabatt ausgeschlossen werden sollen
@@ -50,12 +36,12 @@ MarketplaceAboutPage = Marketplace-Infoseite
 
 MarketplaceArea = Startseite Marktplatz
 DefaultMarketplaceThirdLabel=Marktplatz-Generikakunde
-DefaultMarketPlaceCatLabel=Produkte des Marktplatzes
-DefaultPOSProductLabel=Produktbeispiel für Marketplace
+DefaultMarketPlaceCatLabel=Marketplace-Produkte
+DefaultPOSProductLabel=Beispiel für ein Marketplace-Produkt
 DefaultMarketPlaceCustomersCatLabel=Marketplace-Kunden
 DefaultMarketPlaceVendorsCatLabel=Marktplatzverkäufer
 DefaultMarketPlacePreferredCustomersCatLabel=Bevorzugte Kunden des Marktplatzes
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Kein Rabatt für Mitglieder
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Keine Rabatte für dieses Produkt
 
 ModuleVersion=Version
 DolibarrMin=Dolibarr min
@@ -67,7 +53,7 @@ OldSystemUrl=URL im alten System
 ThisPageContainsInformationAndStatisticsAboutYourMarketplace=Diese Seite enthält Informationen und Statistiken über Ihren Marktplatz
 newModuleProduct=Ein neues Modul einreichen
 shortDescription=Kurzbeschreibung
-largeDescription=Ausführliche Beschreibung
+largeDescription=Lange Beschreibung
 keywords=Schlagwörter
 moduleProductName=Modul-/Produktname
 checkRulesBeforeSubmit=Stellen Sie vor dem Einreichen eines Moduls sicher, dass es den <a href="%s" target="_blank">Validierungsregeln</a> entspricht.
@@ -75,18 +61,18 @@ status=Status
 minVersion=Mindestversion
 maxVersion=Max-Version
 includeModuleInDolibarrCheckbox=Ich möchte mein Modul so schnell wie möglich in den Dolibarr-Kern integrieren
-includeModuleInDolibarrInfo=Gemäß der Dolibarr-Lizenz und den Nutzungsbedingungen von Dolistore ist Ihr Modul unter einer OpenSource-Lizenz lizenziert. Das bedeutet, dass Ihre Arbeit von jedem geändert, wiederverwendet und weiterverbreitet werden kann, auch vom Dolibarr-Kernteam, um sie in die offizielle Version aufzunehmen. Sie können jedoch dazu beitragen, dass das Projekt schneller wächst, indem Sie diesen Prozess beschleunigen, indem Sie das folgende Kontrollkästchen aktivieren.
-includeModuleInDolibarrDetails=	Da ein Dolibarr-Modul ein abgeleitetes Werk von Dolibarr ist, muss ein Modul unter einer Lizenz lizenziert sein, die mit der Dolibarr GPL V3-Lizenz kompatibel ist.<br>Das bedeutet, dass Ihr Quellcode in die offizielle Version von Dolibarr aufgenommen werden kann, um Dolibarr selbst zu verbessern. „Kann“ sagt jedoch nicht „wann“.<br>Wenn Sie also wirklich möchten, dass dies so schnell wie möglich geschieht, aktivieren Sie einfach dieses Kontrollkästchen, damit das Kernteam informiert wird. Dies garantiert nicht, dass es getan wird, erhöht aber die Wahrscheinlichkeit erheblich und verkürzt die Verzögerungszeit.<br>Wenn Ihr Modul im Kern enthalten ist, bedeutet dies, dass das Modul von der Dolibarr-Entwickler-Community verwaltet wird und das Modul aus Dolistore deaktiviert wird, sobald die Dolibarr-Version, die es enthält, öffentlich verfügbar ist.
+includeModuleInDolibarrInfo=Gemäß der Dolibarr-Lizenz und den Nutzungsbedingungen von Dolistore ist Ihr Modul unter einer OpenSource-Lizenz lizenziert. Das bedeutet, dass Ihre Arbeit von jedem geändert, wiederverwendet und weiterverteilt werden kann, einschließlich des Dolibarr-Kernteams (Einbindung des Codes in die offizielle Version). Sie können jedoch dazu beitragen, dass das Projekt schneller wächst, indem Sie diesen Prozess beschleunigen, indem Sie das folgende Kontrollkästchen aktivieren.
+includeModuleInDolibarrDetails=	Ein Dolibarr-Modul ist ein abgeleitetes Werk von Dolibarr, daher muss ein Modul unter einer Lizenz lizenziert sein, die mit der Dolibarr GPL V3-Lizenz kompatibel ist.<br>Das bedeutet, dass Ihr Quellcode in die offizielle Version von Dolibarr aufgenommen werden kann, um Dolibarr selbst zu verbessern. „Kann“ sagt jedoch nicht „wann“.<br>Wenn Sie also wirklich möchten, dass dies so schnell wie möglich geschieht, aktivieren Sie einfach dieses Kontrollkästchen, damit das Kernteam informiert wird. Dies garantiert zwar nicht, dass es erledigt wird, erhöht aber die Wahrscheinlichkeit erheblich und reduziert die Zeitverzögerung.<br>Wenn Ihr Modul im Kern enthalten ist, bedeutet dies, dass das Modul von der Dolibarr-Entwickler-Community verwaltet wird und das Modul aus Dolistore deaktiviert wird, sobald die Dolibarr-Version, die es enthält, öffentlich verfügbar ist.
 salePriceExlTax=Verkaufspreis (ohne MwSt.)
 salePriceFree=(<b>0</b> bedeutet <b>kostenlos</b>)
-salePriceInfo=Je nach Stiftungsstatus wird zu diesem Preis ein Mehrwertsteuersatz von 20,-- hinzugerechnet, sofern der Preis nicht null ist. Ihr 80,--Anteil wird auf diesen Endbetrag angerechnet.
+salePriceInfo=Gemäß dem Rechtsstatus der Stiftung wird zu diesem Preis ein Mehrwertsteuersatz von 20 % hinzugerechnet, sofern der Preis nicht Null ist. Ihr 80%-Anteil wird von diesem endgültigen Nettobetrag berechnet.
 currencyEuro=Euro
-contactSupportInfo=Wird verwendet, um festzulegen, wie der Support kontaktiert werden kann (obligatorisch, wenn das Modul kostenpflichtig ist).
+contactSupportInfo=Wird verwendet, um festzulegen, wie der Support kontaktiert werden kann (obligatorisch, wenn das Modul zum Verkauf steht).
 selectCatForProduct=Wählen Sie Kategorien aus, die sich auf Ihr Produkt beziehen (max. 3)
 zipFileModuleField=Verteiltes Paket (.zip-Datei für ein Modul oder Design)
 zipFileModuleInfo=Neue Datei: Maximale Dateigröße beträgt: 80 MB
 agreeTermsWebsite=Ich habe die Nutzungsbedingungen auf der Seite gelesen und stimme ihnen zu.
-suggestToAddWikiPage=Mir ist bewusst, dass die Dolibarr Foundation mir empfiehlt, eine Seite für mein Modul auf wiki.dolibarr.org hinzuzufügen, die unter <a href="https://wiki.dolibarr.org/index.php/Category:Complementary_modules" target="_blank">https://wiki.dolibarr.org/index.php/Category:Complementary_modules</a> sichtbar ist. Dies erhöht die Sichtbarkeit meines Moduls und kann den Verkauf steigern, wenn es ein kostenpflichtiges Modul ist.
+suggestToAddWikiPage=Mir ist bewusst, dass die Dolibarr Foundation mir empfiehlt, eine Seite für mein Modul auf wiki.dolibarr.org hinzuzufügen, die unter <a href="https://wiki.dolibarr.org/index.php/Category:Complementary_modules" target="_blank">https://wiki.dolibarr.org/index.php/Category:Complementary_modules</a> sichtbar ist. Dies erhöht die Sichtbarkeit meines Moduls und kann die Verkaufszahlen und den Gewinn steigern.
 englishFieldsRequired=Alle englischen Felder sind Pflichtfelder.
 fieldTooLong=Das Feld %s ist zu lang: %s maximal Zeichen (aktuelle Anzahl %s).
 requiredCategory=Sie müssen eine Kategorie auswählen.
@@ -114,7 +100,7 @@ moduleNameMismatch=Achtung, die Moduldatei enthält im Stammverzeichnis ein Verz
 mainIncludeError=Der Aufruf von main.inc.php oder master.inc.php in der Datei „%s“ im Modul „%s“ entspricht nicht den bewährten Praktiken. Sie müssen mindestens (mindestens) 2 Versuche unternehmen, um die Datei main.inc.php oder master.inc.php einzubinden: <br>1, wenn sich das Modul im Stammverzeichnis von dolibarr befindet, und 1 zur Unterstützung, wenn sich das Modul im Verzeichnis „custom“ befindet. Am besten lesen Sie die Datei modulebuilder/template/mymoduleindex.php für ein Beispiel der Sequenz zum Laden von main/master.inc.php.
 dolIncludeError=Der Aufruf von dol_include_once der Datei "%s" im Modul "%s" ist falsch, Sie müssen die folgende Zeile korrigieren:
 docRootError=Der Aufruf deiner Modulklasse darf nicht mit DOL_DOCUMENT_ROOT erfolgen, die Datei "%s" des Moduls "%s" ist falsch, du musst die folgende Zeile mit "dol_include_once" korrigieren:
-invalidZipFile=Ihre ZIP-Datei scheint nicht den Paketregeln von Dolibarr zu entsprechen.
+invalidZipFile=Ihre ZIP-Datei entspricht nicht den Paketregeln von Dolibarr.
 seeDocumentation=Siehe %s
 contactDolistore=Wenn Sie glauben, dass dies ein Fehler ist oder diese Nachricht nicht verstehen, senden Sie Ihr Paket per E-Mail an dolistore@dolibarr.org
 packageFileNameRules=Der Paketdateiname muss mit (Modul|ModulXxx|Design|Website)_meinPaketname-x.y(.z).zip übereinstimmen.
@@ -125,7 +111,7 @@ moduleInformation=Modulinformationen
 attachments=Anlagen
 termsAndConditionsOfUse=Nutzungsbedingungen
 zipProductRequired=Sie müssen ein Produkt hochladen
-errorImageFormat=Ihr Bild muss im JPG-, GIF- oder PNG-Format sein, das Format %s ist nicht zulässig
+errorImageFormat=Ihr Bild muss im JPG-, GIF- oder PNG-Format vorliegen, das Format %s wird nicht unterstützt.
 fieldRequired = <b>%s</b> ist erforderlich.
 orderChanged=Die Reihenfolge wurde geändert
 imageAdded=Bild wurde hinzugefügt
@@ -150,9 +136,9 @@ totalOfSellsDone=Gesamtzahl der getätigten Verkäufe
 totalValidatedSells=Gesamtzahl validierter Verkäufe
 exclTax=Exkl. MwSt.
 amountToClaim=Zu fordernder Betrag
-remainedAmount=Restbetrag zum Einfordern
+remainedAmount=Restbetrag, der geltend gemacht werden kann
 minAmountToClaim=Mindestbetrag für die Geltendmachung von Zahlungen
-minAmountToClaimDesc=Jeder Verkauf wird nach einer Verzögerung von einem Monat bestätigt
+minAmountToClaimDesc=Jeder Verkauf wird 1 Monat nach dem Verkaufsdatum bestätigt.
 paymentHistory=Zahlungsverhalten
 amountOrigin=Betrag Herkunft
 downloadAllSales=Laden Sie die Liste aller Verkäufe herunter
@@ -188,13 +174,14 @@ websitePurged= – Die Website <b>%s</b> wurde bereinigt.
 templateImported= – Die Standard-Marktplatzvorlage wurde in die Website importiert <b>%s</b>.
 websiteCreated= - Es wurde eine dedizierte Website mit der Referenz <b>%s</b> erstellt.
 DiscountsPreferedCustomers=Rabatte für „bevorzugte“ Interessenten/Kunden
-marketplaceRewriteRules= Regeln zum Neuverfassen, die in die Konfigurationsdatei Ihres virtuellen Apache-Hosts aufgenommen werden sollen
+marketplaceRewriteRules= Schreiben Sie die Regeln neu, um sie in Ihre Apache-Konfigurationsdatei für virtuelle Hosts aufzunehmen
 marketplaceGenerateRewriteFile= Sie können auch eine Apache-Rewrite-Datei mit separaten Regeln für jedes Produkt generieren (um sie manuell in die Konfiguration Ihres virtuellen Apache-Hosts einzubinden).
 rewriteFileErrorNoProducts=Sie müssen zuerst Produkte importieren.
 rewriteFileErrorUnableToCreateFile=Temporäre Datei kann nicht erstellt werden.
 invoicesStatsMarketplace=Rechnungen statistis
 customersStatsMarketplace=Kundenstatistiken
 productsStatsMarketplace=Produktstatistiken
+ListOfSalesMarketplace=Liste der Verkäufe
 LastThirdPartiesOnMarketplace=Die neuesten %s Drittanbieter
 LastpreferredThirdPartiesOnMarketplace=Die neuesten %s bevorzugten Drittanbieter
 download=Herunterladen
@@ -216,3 +203,18 @@ accountInformationPageTitle = Kontoinformationen
 forgotPasswordPageTitle = Passwort vergessen
 incomePaymentsPageTitle = Einkommenszahlungen
 notFoundPageTitle = Nicht gefunden
+NoAttachedFileFound=Für dieses Produkt ist kein Dateianhang verfügbar.
+GroupByCountryAndVatRate=Gruppieren nach Land und Mehrwertsteuersatz
+GroupByZoneAndVatRate=Gruppieren nach Zone und Mehrwertsteuersatz
+OrderID=Bestellnummer
+LineId=Leitungs-ID
+NbOfProducts=Anzahl der Produkte
+IsValid=Ist gültig
+PaymentMode=Zahlungsmodus
+RefundedOrCancelled=Erstattet oder storniert
+marketplacePurchasesDisabled=Modulkäufe sind wegen Wartungsarbeiten vorübergehend deaktiviert. Bitte versuchen Sie es später erneut.
+ModuleKeywords=Schlagwörter
+goodiesPageTitle=Goodies of Dolibarr-Projekt - DoliStore
+goodiesPageKeywords=Leckereien
+goodiesPageDescription=Goodies des Dolibarr-Projekts
+goodiesbuttonTitle=Besuchen Sie unseren Goodies Store
