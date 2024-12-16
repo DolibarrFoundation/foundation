@@ -313,7 +313,7 @@ if ($result_products = $conn->query($products_query)) {
 		//add one product
 		$product = new Product($db);
 
-		$product->type = 0;
+		$product->type = $product::TYPE_SERVICE;
 		$product->status = $obj->active;
 		$product->status_buy = 0;
 
