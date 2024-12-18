@@ -474,11 +474,11 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 			}
 
 			if ($action == "updated"){
-				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $obj->id_customer . "' WHERE rowid = " . ((int) $objsqlr->rowid);
+				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET ref_ext = '".$db->escape($obj->id_customer)."' AND import_key = '" . $db->escape($importkey) . "' WHERE rowid = " . ((int) $objsqlr->rowid);
 			}
 
 			if ($action == "imported"){
-				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $obj->id_customer . "', datec = '" . $obj->date_add . "' WHERE rowid = " . ((int) $result);
+				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET ref_ext = '".$db->escape($obj->id_customer)."' AND import_key = '" . $db->escape($importkey) . "', datec = '" . $obj->date_add . "' WHERE rowid = " . ((int) $result);
 			}
 
 			$db->query($sql);
