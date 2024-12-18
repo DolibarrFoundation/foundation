@@ -407,7 +407,7 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 			if (empty($company)) {
 				// Get company from address
 				$request_to_get_company = "
-					SELECT DISTINCT c.company
+					SELECT DISTINCT a.company
 					FROM ps_customer as c
 					LEFT JOIN ps_address as a ON a.id_customer = c.id_customer AND a.deleted = 0
 					WHERE c.id_customer = ".$obj->id_customer."
@@ -474,11 +474,11 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 			}
 
 			if ($action == "updated"){
-				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $db->escape($importkey) . "' WHERE rowid = " . ((int) $objsqlr->rowid);
+				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $obj->id_customer . "' WHERE rowid = " . ((int) $objsqlr->rowid);
 			}
 
 			if ($action == "imported"){
-				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $db->escape($importkey) . "', datec = '" . $obj->date_add . "' WHERE rowid = " . ((int) $result);
+				$sql = 'UPDATE ' . MAIN_DB_PREFIX . "societe SET import_key = '" . $obj->id_customer . "', datec = '" . $obj->date_add . "' WHERE rowid = " . ((int) $result);
 			}
 
 			$db->query($sql);

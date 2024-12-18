@@ -473,6 +473,9 @@ if ($result_products = $conn->query($products_query)) {
 			// Add  categories and verions
 			$categries_and_versions_list = array();
 
+			$root_category = getDolGlobalInt("MARKETPLACE_ROOT_CATEGORY_ID");
+			$categries_and_versions_list[$root_category] = $root_category; // Ensure that the root category is always added
+
 			$products_categories_query = "
 			select
 				pcp.id_category
@@ -544,7 +547,7 @@ if ($result_products = $conn->query($products_query)) {
 				}
 			} else {
 				//$error++;
-				print " - not category found on this product";
+				//print " - no category found on this product";
 			}
 
 			// Add pictures

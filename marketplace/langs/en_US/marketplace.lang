@@ -132,6 +132,7 @@ filterDateBetween=Filter date between
 oneDateEmpty=One date is filled and the other is empty
 endDateMustBeGreater=End date must be greater than the start date
 numberOfPaidSells=Number of paid sells
+numberOfProducts=Number of products
 totalOfSellsDone=Total of sells done
 totalValidatedSells=Total validated sells
 exclTax=Excl. tax
