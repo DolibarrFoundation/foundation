@@ -314,7 +314,7 @@ if ($result_orders = $conn->query($orders_querry)) {
 			FROM ps_order_detail od
 			JOIN ps_product p ON od.product_id = p.id_product
 			WHERE 
-				od.product_quantity_refunded = 0 AND
+				(od.product_quantity - od.product_quantity_refunded) > 0 AND
 				od.id_order = " . $obj->id_order . " 
 			";
 
@@ -362,9 +362,9 @@ if ($result_orders = $conn->query($orders_querry)) {
 					// tva
 					$tva_tx = $line->tva_rate;
 
-					$result = $com->addline($product->label, $line->product_price, $line->product_quantity, $tva_tx, 0, 0, $product->id, $line->reduction_percent, 0, 0, 'HT', $line->unit_price_tax_incl, '', '', $product->type);
+					$result = $com->addline($product->label, $line->product_price, $line->product_quantity - $line->product_quantity_refunded, $tva_tx, 0, 0, $product->id, $line->reduction_percent, 0, 0, 'HT', $line->unit_price_tax_incl, '', '', $product->type);
 					if ($result <= 0) {
-						print ' - Order line with id : ' . $line->id_order_detail . ' can\'t be add  => error ' . $result . ' - ' . $com->errorsToString() . "\n";;
+						print ' - Order line with id : ' . $line->id_order_detail . ' can\'t be add  => error ' . $result . ' - ' . $com->errorsToString() . "\n";
 						$error++;
 						$db->rollback();
 						$db->close();
