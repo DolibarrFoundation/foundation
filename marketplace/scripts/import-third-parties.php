@@ -413,9 +413,12 @@ if ($result_customers = $conn->query($sql_request_for_customers)) {
 					WHERE c.id_customer = ".$obj->id_customer."
 					LIMIT 1
 				";
-				$fetch_company = mysqli_fetch_row($conn->query($request_to_get_company));
-				if(!empty($fetch_company['company'])){
-					$company = trim($fetch_company['company']);
+				$resCompanyFromAddr = $conn->query($request_to_get_company);
+				if ($resCompanyFromAddr) {
+					$objCompanyFromAddr = $conn->fetch_object($resCompanyFromAddr);
+					if ($objCompanyFromAddr && !empty($objCompanyFromAddr->company)) {
+						$company = trim($objCompanyFromAddr->company);
+					}
 				}
 			}
 			$publisher = $db->escape($publisher);
