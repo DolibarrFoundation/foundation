@@ -141,6 +141,7 @@ remainedAmountToday=Remaining amount to claim today
 remainedAmountInOneMonth=Remaining amount to claim in one month
 aPaymentWasDoneThisMonth=Payment already made this month. You cannot claim again.
 totalVouchersOffered=Total amount of vouchers offered excl tax
+totalDiscountsOffered=Total amount of discounts excl tax
 minAmountToClaim=Minimum amount to claim payments
 minAmountToClaimDesc=Any sell is validated after 1 month from sale date
 paymentHistory=Payment history
@@ -162,7 +163,7 @@ passwordsAreNotTheSame=Passwords are not the same
 wrongOrExpiredToken=Wrong or expired token
 passwordChangedMessage=Your password has been changed, <br> you can log in now
 marketplaceDesc=Welcome to the Marketplace of %s Company
-ifYouNeedAnInvoice=If you need an invoice, please contact: %s
+ifYouNeedAnInvoice=For invoices issued before January 1, 2025, they can be downloaded from the old store: <a href="%s" target="new">%s</a>
 MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE=Email template for the email "Password forgotten"
 MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE=Email template for the email "Buyer Order confirmation"
 MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=Email template for the email "Sellers Order confirmation"

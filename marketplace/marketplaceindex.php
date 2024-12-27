@@ -141,7 +141,7 @@ dol_mkdir($dir);
 $stats = new FactureStats($db, $socid, $mode, ($userid > 0 ? $userid : 0), ($typent_id > 0 ? $typent_id : 0), ($categ_id > 0 ? $categ_id : 0));
 if ($mode == 'customer') {
 	if ($object_status != '' && $object_status >= 0) {
-		$stats->where .= ' AND f.fk_statut IN ('.$db->sanitize($object_status).') AND f.module_source = "Marketplace"';
+		$stats->where .= ' AND f.fk_statut IN ('.$db->sanitize($object_status).') AND f.module_source = "marketplace"';
 	}
 	if (is_array($select_categ_categ_id) && !empty($select_categ_categ_id)) {
 		$stats->from .= ' LEFT JOIN '.MAIN_DB_PREFIX.'categorie_societe as cat ON (f.fk_soc = cat.fk_soc)';
