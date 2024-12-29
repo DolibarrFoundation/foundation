@@ -294,7 +294,7 @@ $sql .= "
     AND c.fk_statut IN (1, 3)
     AND (c.facture = 1 OR c.ref_ext IS NOT NULL)
 	AND (f_order.type = 0 OR f_credit.type IS NULL)
-    AND c.module_source = 'Marketplace'
+    AND c.module_source = 'marketplace'
 ";
 
 // Additional filtering conditions

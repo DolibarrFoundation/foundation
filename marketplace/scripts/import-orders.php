@@ -275,7 +275,8 @@ if ($result_orders = $conn->query($orders_querry)) {
 		$com->socid          = $thirdparty_buyer->id;
 		$com->date           = $obj->date_add;
 		$com->note_private   = 'Order imported from old Dolistore old_id : ' . $obj->id_order;
-		$com->module_source  = 'Marketplace';
+		$com->module_source  = 'marketplace';
+		$com->pos_source	 = dol_getmypid() . "@prestashop";
 		// Add payment module
 		if (isset($obj->payment_module) && array_key_exists($obj->payment_module, $dolibarrPaymentMethods)) {
 			$com->mode_reglement_id = $dolibarrPaymentMethods[$obj->payment_module];
@@ -376,7 +377,7 @@ if ($result_orders = $conn->query($orders_querry)) {
 					// Add remise amount
 					if ($line->reduction_amount > 0) {
 						// define a discount on third party buyer
-						$desc = "Remise of product : " . $product->label;
+						$desc = $product->id . "# Remise of product : " . $product->label . " [ALREADY APPLIED]"; // In Dolibarr, it is indicated that this "remise" is not yet used, but it is already applied in the old system.
 						$discountid = $thirdparty_buyer->set_remise_except($line->reduction_amount_tax_excl, $user, $desc, $tva_tx, 0, 'HT');
 
 						if ($discountid > 0) {
