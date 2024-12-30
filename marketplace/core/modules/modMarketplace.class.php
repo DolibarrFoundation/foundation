@@ -832,7 +832,7 @@ class modMarketplace extends DolibarrModules
 			}
 		}
 
-		if (empty(getDolGlobalInt("MARKETPLACE_WEBSITE_ID"))) {
+		if (getDolGlobalInt("MARKETPLACE_WEBSITE_ID") <= 0) {
 			$website = new Website($this->db);
 
 			// Get free ref for insert
@@ -854,7 +854,7 @@ class modMarketplace extends DolibarrModules
 				$website->otherlang = "en,fr,de,it,es";
 			}
 			$result = $website->create($user);
-			if ($result < 0) {
+			if ($result <= 0) {
 				setEventMessages($website->error, $website->errors, 'errors');
 			} else {
 				setEventMessages($langs->trans("websiteCreated", $website->ref), null, 'warnings');

@@ -193,7 +193,7 @@ $itemlogo->cssClass = 'minwidth500';
 // Name of template to use
 $website = new Website($db);
 $listofwebsites = $website->fetchAll('ASC', 'position'); // List of websites
-$TFieldWebsites = array();
+$TFieldWebsites = array('-1' => '');
 foreach ($listofwebsites as $key => $valwebsite) {
 	$TFieldWebsites[$valwebsite->id] = $valwebsite->ref;
 }
