@@ -641,7 +641,7 @@ class modMarketplace extends DolibarrModules
 		if (is_array($cate_arbo)) {
 			if (!count($cate_arbo) || !getDolGlobalString('MARKETPLACE_VERSIONS_CATEGORY_ID')) {
 				$category = new Categorie($this->db);
-				$category->label = $langs->trans("Versions");
+				$category->label = $langs->trans("DefaultMarketPlaceVersions");
 				$category->type = Categorie::TYPE_PRODUCT;
 
 				$result = $category->create($user);
@@ -670,7 +670,7 @@ class modMarketplace extends DolibarrModules
 		if (is_array($cate_arbo)) {
 			if (!count($cate_arbo) || !getDolGlobalString('MARKETPLACE_SPECIAL_CATEGORY_ID')) {
 				$category = new Categorie($this->db);
-				$category->label = $langs->trans("Discounts");
+				$category->label = $langs->trans("DefaultMarketPlaceDiscounts");
 				$category->type = Categorie::TYPE_PRODUCT;
 
 				$result = $category->create($user);
@@ -806,7 +806,7 @@ class modMarketplace extends DolibarrModules
 		require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';
 		require_once DOL_DOCUMENT_ROOT.'/core/lib/website2.lib.php';
 
-		if ($action == 'reload' && !empty(getDolGlobalInt("MARKETPLACE_WEBSITE_ID"))) {
+		if ($action == 'reload' && getDolGlobalInt("MARKETPLACE_WEBSITE_ID") > 0) {
 			$website = new Website($this->db);
 			$website_id = getDolGlobalInt("MARKETPLACE_WEBSITE_ID");
 			$result = $website->fetch($website_id);
@@ -854,6 +854,7 @@ class modMarketplace extends DolibarrModules
 				$website->otherlang = "en,fr,de,it,es";
 			}
 			$result = $website->create($user);
+			
 			if ($result <= 0) {
 				setEventMessages($website->error, $website->errors, 'errors');
 			} else {

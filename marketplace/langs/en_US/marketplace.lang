@@ -42,6 +42,8 @@ DefaultMarketPlaceCustomersCatLabel=Marketplace customers
 DefaultMarketPlaceVendorsCatLabel=Marketplace sellers
 DefaultMarketPlacePreferredCustomersCatLabel=Marketplace preferred customers
 DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never discounts for this product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Version
 DolibarrMin=Dolibarr min
