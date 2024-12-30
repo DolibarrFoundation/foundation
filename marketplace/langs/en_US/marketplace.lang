@@ -41,7 +41,7 @@ DefaultPOSProductLabel=Marketplace product example
 DefaultMarketPlaceCustomersCatLabel=Marketplace customers
 DefaultMarketPlaceVendorsCatLabel=Marketplace sellers
 DefaultMarketPlacePreferredCustomersCatLabel=Marketplace preferred customers
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never discounts for this product
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
 DefaultMarketPlaceVersions=Marketplace versions
 DefaultMarketPlaceDiscounts=Marketplace discounts
 
