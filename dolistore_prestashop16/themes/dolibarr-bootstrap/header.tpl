@@ -103,6 +103,16 @@
 								</div>
 								{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 							</div>
+							
+							<!-- Migration Dolibarr -->
+                            <div class="row" style="text-align:center">
+                                    <br><div style="color: red; font-weight: bold">
+                                    [EN] Site maintenance is currently underway. Sales are currentlysuspended.<br>
+                                    [FR] Une migration du site est en cours. Les ventes sont donc actuellement suspendues depuis ce site.<br>
+                                    [ES] Hay una migración del sitio en curso. Por lo tanto, las ventas están actualmente suspendidas en este sitio.<br>
+                                    </div>
+                            </div>
+							
 						</div>
 					</div>
 				</header>
