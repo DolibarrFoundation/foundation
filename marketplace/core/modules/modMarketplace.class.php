@@ -806,6 +806,7 @@ class modMarketplace extends DolibarrModules
 		require_once DOL_DOCUMENT_ROOT.'/core/lib/website.lib.php';
 		require_once DOL_DOCUMENT_ROOT.'/core/lib/website2.lib.php';
 
+		$doImportTemplate = 0;
 		if ($action == 'reload' && getDolGlobalInt("MARKETPLACE_WEBSITE_ID") > 0) {
 			$website = new Website($this->db);
 			$website_id = getDolGlobalInt("MARKETPLACE_WEBSITE_ID");
@@ -821,13 +822,8 @@ class modMarketplace extends DolibarrModules
 					// Activate marketplace template
 					$website->setTemplateName("website_template-dolistore");
 
-					$templateZip = DOL_DATA_ROOT.'/doctemplates/websites/website_template-dolistore.zip';
-					$result = $website->importWebSite($templateZip);
-					if ($result < 0) {
-						setEventMessages($website->error, $website->errors, 'errors');
-					} else {
-						setEventMessages($langs->trans("templateImported", $website->ref), null, 'warnings');
-					}
+					// Ask to import Marketplace template once init done
+					$doImportTemplate = 1;
 				}
 			}
 		}
@@ -863,22 +859,11 @@ class modMarketplace extends DolibarrModules
 				// Activate marketplace template
 				$website->setTemplateName("website_template-dolistore");
 
-				$templateZip = DOL_DATA_ROOT.'/doctemplates/websites/website_template-dolistore.zip';
-				$result = $website->importWebSite($templateZip);
+				// Force mode dynamic on
+				dolibarr_set_const($this->db, 'WEBSITE_SUBCONTAINERSINLINE', 1, 'chaine', 0, '', $conf->entity);
 
-				if ($result < 0) {
-					setEventMessages($website->error, $website->errors, 'errors');
-				} else {
-					// Force mode dynamic on
-					dolibarr_set_const($this->db, 'WEBSITE_SUBCONTAINERSINLINE', 1, 'chaine', 0, '', $conf->entity);
-
-					dolibarr_set_const($this->db, 'MARKETPLACE_WEBSITE_ID', $website_id, 'chaine', 0, 'Marketplace website id', $conf->entity);
-
-					setEventMessages($langs->trans("templateImported", $website->ref), null, 'warnings');
-
-					// TODO Create welcome page AND Static pages
-				}
-
+				dolibarr_set_const($this->db, 'MARKETPLACE_WEBSITE_ID', $website_id, 'chaine', 0, 'Marketplace website id', $conf->entity);
+				$doImportTemplate = 1;
 			}
 		}
 
@@ -912,6 +897,19 @@ class modMarketplace extends DolibarrModules
 
 		if (! empty($result)) {
 			$messageontemplatecopy = $langs->trans("WebsiteTemplateWasCopied", 'dolistore');
+
+			if ($doImportTemplate == 1 && !empty($website_id)) {
+				$website = new Website($this->db);
+				$result = $website->fetch($website_id);
+				$templateZip = DOL_DATA_ROOT.'/doctemplates/websites/website_template-dolistore.zip';
+				$result = $website->importWebSite($templateZip);
+				if ($result < 0) {
+					setEventMessages($website->error, $website->errors, 'errors');
+				} else {
+					setEventMessages($langs->trans("templateImported", $website->ref), null, 'warnings');
+				}
+			}
+
 			setEventMessages($messageontemplatecopy, null, 'warnings');
 		}
 		return $result;
