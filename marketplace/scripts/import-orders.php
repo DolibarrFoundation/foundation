@@ -120,7 +120,7 @@ require_once DOL_DOCUMENT_ROOT . "/commande/class/commande.class.php";
 require_once DOL_DOCUMENT_ROOT . '/core/class/discount.class.php';
 
 
-$new = dol_now();
+$now = dol_now();
 
 
 /*

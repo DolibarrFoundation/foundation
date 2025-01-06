@@ -324,7 +324,7 @@ if ($result_products = $conn->query($products_query)) {
 		}
 
 		$formbarcode = new FormBarCode($db);
-		if (is_object($modBarCodeProduct)) {
+		if (!empty($modBarCodeProduct) && is_object($modBarCodeProduct)) {
 			$tmpcode = $modBarCodeProduct->getNextValue($product, $fk_barcode_type);
 		} else {
 			$tmpcode = null;
