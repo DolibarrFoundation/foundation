@@ -167,6 +167,7 @@ class modMarketplace extends DolibarrModules
 		// );
 		$this->const = array(
 			1 => array('PRODUCT_USE_OTHER_FIELD_IN_TRANSLATION', 'chaine', '1', 'Constant to support multiple translation of private notes on products', 1),
+			2 => array('WEBSITE_PHP_ALLOW_WRITE', 'chaine', '1', 'Allow the PHP web site to write content on disks', 1),
 		);
 
 		// Some keys to add into the overwriting translation tables
