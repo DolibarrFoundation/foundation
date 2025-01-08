@@ -114,7 +114,7 @@ $user->getrights();
 
 include_once DOL_DOCUMENT_ROOT . '/categories/class/categorie.class.php';
 
-$new = dol_now();
+$now = dol_now();
 
 
 /*
