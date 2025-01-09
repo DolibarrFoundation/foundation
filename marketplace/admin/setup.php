@@ -145,7 +145,12 @@ $item->setAsMultiSelect($TField);
 $item->helpText = $langs->transnoentities('MARKETPLACE_MYPARAM10');
 */
 
-$formSetup->newItem('products')->setAsTitle();
+$formSetup->newItem('Miscellaneous')->setAsTitle();
+
+// Setup conf for the name of the Market place
+$formSetup->newItem('MARKETPLACE_NAME');
+
+$formSetup->newItem('Products')->setAsTitle();
 
 // Setup conf for root category of proucts to sell
 $formSetup->newItem('MARKETPLACE_ROOT_CATEGORY_ID')->setAsCategory('product');

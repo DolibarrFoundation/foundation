@@ -14,6 +14,7 @@ MarketplaceSetup = Marketplace setup
 Settings = Settings
 MarketplaceSetupPage = Marketplace setup page
 NewSection=New section
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Root category for products to sell on the marketplace
 MARKETPLACE_VERSIONS_CATEGORY_ID=Category for the widget "Version" on the home page of the markeplate website
 MARKETPLACE_SPECIAL_CATEGORY_ID=Category for the widget "Promotions" on the home page of the marketplace website
