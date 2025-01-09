@@ -242,3 +242,7 @@ products=Products
 dateNewestFirst=Date: newest first
 newProducts=New products
 invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free
