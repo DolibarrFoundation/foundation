@@ -397,10 +397,7 @@ echo '<span class="opacitymedium">'.$langs->trans("MarketplaceSetupPage").'</spa
 if (!empty($formSetup->items)) {
 	print $formSetup->generateOutput(true, true);
 	print '<br>';
-} else {
-	print '<br>'.$langs->trans("NothingToSetup");
 }
-
 
 /*
 $moduledir = 'marketplace';

@@ -55,6 +55,11 @@ function marketplaceAdminPrepareHead()
 	$h++;
 	*/
 
+	$head[$h][0] = dol_buildpath("/marketplace/admin/setuppayment.php", 1);
+	$head[$h][1] = $langs->trans("MarketPlaceSetupPayment");
+	$head[$h][2] = 'setuppayment';
+	$h++;
+	
 	$head[$h][0] = dol_buildpath("/marketplace/admin/importtip.php", 1);
 	$head[$h][1] = $langs->trans("ImportTip");
 	$head[$h][2] = 'importtip';

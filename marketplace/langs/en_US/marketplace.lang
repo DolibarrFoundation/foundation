@@ -31,6 +31,8 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Category for all prospects or customer
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Discount percentage for "Preferred" prospects or customers
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Category for products to exclude from the discount
 ImportTip=Migration tips
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop.
 
 About = About
 MarketplaceAboutPage = Marketplace about page
