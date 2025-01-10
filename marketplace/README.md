@@ -28,7 +28,7 @@ There is a [Transifex project](https://transifex.com/projects/p/dolibarr-module-
 
 ## Installation
 
-Prerequisites: You must have the Dolibarr ERP CRM software installed. You can down it from [Dolistore.org](https://www.dolibarr.org).
+Prerequisites: You must have the Dolibarr ERP CRM software installed. You can download it from [Dolibarr.org](https://www.dolibarr.org).
 You can also get a ready to use instance in the cloud from htts://saas.dolibarr.org
 
 
