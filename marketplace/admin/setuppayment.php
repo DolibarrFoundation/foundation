@@ -257,13 +257,13 @@ print '<br><br>';
 
 
 if (!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	print "If you use the payment outside of a frame, no particular setup is required for this module.\n";
+	print "You are using the payment outside of a frame, no particular setup is required for this module.\n";
 	print "<br>\n";
-	print "This mode is not yet supported. Use the frame mode !!!!!!!!<br>\n";
+	print '<span class="red">This mode is not yet supported. Use the frame mode !!!!!!!!</span><br>'."\n";
 }
 
 if (getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	print "<small>If you use the payment inside a frame, you must modify the virtual host of you market place web server to 
+	print "<small>You are using the payment inside a frame, you must modify the virtual host of you marketplace web server to
 	include a proxy of the payment URLs to the URLs of your Dolibarr backend server.</small><br>\n";
 	print '<textarea class="quatrevingtpercent" rows=20>';
 	print "# If you need include the payment page into a frame of the marketplace website,\n";
