@@ -32,7 +32,15 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Discount percentage for "Preferr
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Category for products to exclude from the discount
 ImportTip=Migration tips
 MarketPlaceSetupPayment=Setup of payments
-UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop.
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+  
 
 About = About
 MarketplaceAboutPage = Marketplace about page

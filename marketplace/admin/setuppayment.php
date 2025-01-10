@@ -218,10 +218,6 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'title_setup');
 $head = marketplaceAdminPrepareHead();
 print dol_get_fiche_head($head, 'setuppayment', $langs->trans($page_name), -1, "fa-store");
 
-// Setup page goes here
-//echo '<span class="opacitymedium">'.$langs->trans("MarketplaceSetupPage").'</span><br><br>';
-
-
 global $dolibarr_main_url_root;
 $param = '';
 
@@ -246,7 +242,19 @@ print $enabledisablehtml;
 print '<input type="hidden" id="MEMBER_ENABLE_PUBLIC" name="MEMBER_ENABLE_PUBLIC" value="'.(!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME') ? 0 : 1).'">';
 
 print '<br><br>';
+
+// Setup page goes here
+print '<span class="opacitymedium">'."<br>\n";
+print $langs->trans("MarketplaceSetupPaymentPage1")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
 print "<br>\n";
+print $langs->trans("MarketplaceSetupPaymentPage2")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
+print '</span>'."<br>\n";
+print '<br><br>';
+
 
 if (!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
 	print "If you use the payment outside of a frame, no particular setup is required for this module.\n";
@@ -255,12 +263,11 @@ if (!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
 }
 
 if (getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	print "If you use the payment inside a frame, you must modify the virtual host of you market place web server to include a proxy
-	of some URL to the URL of your Dolibarr backend server.<br>\n";
-	print "For example:<br>\n";
+	print "<small>If you use the payment inside a frame, you must modify the virtual host of you market place web server to 
+	include a proxy of the payment URLs to the URLs of your Dolibarr backend server.</small><br>\n";
 	print '<textarea class="quatrevingtpercent" rows=20>';
-	print "# If you need include the payment page into a frame of the website,\n";
-	print "# you need to make a proxy redirection of URLs required for the payment to your backoffice pages\n";
+	print "# If you need include the payment page into a frame of the marketplace website,\n";
+	print "# you need to make a proxy redirection of URLs required for the payment to your backoffice public payment pages\n";
 	print "#SSLProxyEngine On\n";
 	print "#SSLProxyVerify none\n";
 	print "#SSLProxyCheckPeerCN off\n";
