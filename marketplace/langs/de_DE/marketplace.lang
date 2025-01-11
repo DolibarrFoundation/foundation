@@ -14,6 +14,7 @@ MarketplaceSetup = Marktplatz-Einrichtung
 Settings = Einstellungen
 MarketplaceSetupPage = Seite zur Einrichtung des Marktplatzes
 NewSection=Neuer Abschnitt
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Stammkategorie für Produkte, die auf dem Marktplatz verkauft werden sollen
 MARKETPLACE_VERSIONS_CATEGORY_ID=Kategorie für das Widget "Version" auf der Startseite der Markeplate-Website
 MARKETPLACE_SPECIAL_CATEGORY_ID=Kategorie für das Widget „Aktionen“ auf der Startseite der Marktplatz-Website
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Kategorie für alle Interessenten oder
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Rabattprozentsatz für „bevorzugte“ Interessenten oder Kunden
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Kategorie für Produkte, die vom Rabatt ausgeschlossen werden sollen
 ImportTip=Tipps zur Migration
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = Um
 MarketplaceAboutPage = Marketplace-Infoseite
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Beispiel für ein Marketplace-Produkt
 DefaultMarketPlaceCustomersCatLabel=Marketplace-Kunden
 DefaultMarketPlaceVendorsCatLabel=Marktplatzverkäufer
 DefaultMarketPlacePreferredCustomersCatLabel=Bevorzugte Kunden des Marktplatzes
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Keine Rabatte für dieses Produkt
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Version
 DolibarrMin=Dolibarr min
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=E-Mail-Vorlage für die E-Mail �
 BuyerOrderConfirmation=Auftragsbestätigung
 SellerOrderNotification=Bestellbenachrichtigung
 marketplaceBuyerOrderConfirmationContent=<div><p>Hallo __BUYER_NAME__,<br /><br />Vielen Dank für Ihren Einkauf auf dem <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marktplatz!<br /><br />Ihre Bestellung wurde erfolgreich aufgegeben.<br /><u>Bestellreferenz:</u>&nbsp; __ORDER_REF__<br /><u>Bestelldatum:</u> __ORDER_DATE__<br /><u>Produkte bestellen</u>:<br />__PRODUCTS__<br /><br /><span style="font-size:small"><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Sie können Ihre Bestellung überprüfen und Ihre Rechnung im Abschnitt <strong>&quot;Bestellverlauf&quot;</strong> Ihres Kontos herunterladen.</span></span></span></p><p>Vielen Dank für Ihren Einkauf bei uns!<br />Mit freundlichen Grüßen<br />Das <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>-Team</p></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Hallo)__ __SELLER_NAME__,<p>Wir freuen uns, Ihnen mitteilen zu können, dass Sie eine neue Bestellung auf <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace erhalten haben!<br /><br /><strong>Bestelldetails:</strong><br /><u>Bestellreferenz:</u>&nbsp; __ORDER_REF__<br /><u>Käufername:</u>&nbsp; __KÄUFERNAME__<br /><u>Bestelldatum:</u>&nbsp; __BESTELLDATUM__<br /><br /><u>Produkt:</u>&nbsp; __PRODUKT__<br /><u>Menge:</u>&nbsp; __MENGE__<br /><br />Vielen Dank, dass Sie ein geschätzter Verkäufer auf dem <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marktplatz sind!<br /><br />Mit freundlichen Grüßen,<br />Die <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p><span. class='notranslate'>b0d3675277 15b4z0</span>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=Hoppla! Seite nicht gefunden.
 pageNotFoundDesc=Es tut uns leid, aber die von Ihnen gesuchte Seite existiert nicht, wurde entfernt oder ist vorübergehend nicht verfügbar.
 pageNotEditable=Diese Seite kann im Editor nicht bearbeitet oder in der Vorschau angezeigt werden. Sie können die Vorschau in einem neuen Tab anzeigen.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> wurde %s.
 websitePurged= – Die Website <b>%s</b> wurde bereinigt.
 templateImported= – Die Standard-Marktplatzvorlage wurde in die Website importiert <b>%s</b>.
 websiteCreated= - Es wurde eine dedizierte Website mit der Referenz <b>%s</b> erstellt.
-DiscountsPreferedCustomers=Rabatte für „bevorzugte“ Interessenten/Kunden
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Schreiben Sie die Regeln neu, um sie in Ihre Apache-Konfigurationsdatei für virtuelle Hosts aufzunehmen
 marketplaceGenerateRewriteFile= Sie können auch eine Apache-Rewrite-Datei mit separaten Regeln für jedes Produkt generieren (um sie manuell in die Konfiguration Ihres virtuellen Apache-Hosts einzubinden).
 rewriteFileErrorNoProducts=Sie müssen zuerst Produkte importieren.
@@ -237,3 +250,9 @@ PhotoViewLarger=Vergrößern
 moreInfo=Mehr Infos
 products=Produkte
 dateNewestFirst=Datum: Neueste zuerst
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free

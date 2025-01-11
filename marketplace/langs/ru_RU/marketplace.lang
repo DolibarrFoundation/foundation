@@ -14,6 +14,7 @@ MarketplaceSetup = Настройка торговой площадки
 Settings = Настройки
 MarketplaceSetupPage = Страница настройки торговой площадки
 NewSection=Новый раздел
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Корневая категория для продуктов, продаваемых на рынке
 MARKETPLACE_VERSIONS_CATEGORY_ID=Категория для виджета «Версия» на главной странице сайта маркетплейта
 MARKETPLACE_SPECIAL_CATEGORY_ID=Категория для виджета «Акции» на главной странице сайта торговой площадки
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Категория для всех п�
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Процент скидки для «предпочтительных» потенциальных клиентов или клиентов
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Категория для товаров, исключаемых из скидки
 ImportTip=Советы по миграции
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = О
 MarketplaceAboutPage = Торговая площадка о странице
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Пример продукта на торговой пл�
 DefaultMarketPlaceCustomersCatLabel=Клиенты на рынке
 DefaultMarketPlaceVendorsCatLabel=Продавцы на рынке
 DefaultMarketPlacePreferredCustomersCatLabel=Предпочтительные клиенты на рынке
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Никогда не скидки на этот продукт
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Версия
 DolibarrMin=Долибарр мин
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=Шаблон электронн�
 BuyerOrderConfirmation=Подтверждение заказа
 SellerOrderNotification=Уведомление о заказе
 marketplaceBuyerOrderConfirmationContent=<div><p>Здравствуйте, __BUYER_NAME__,<br /><br />Спасибо за покупку на торговой площадке <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>!<br /><br />Ваш заказ успешно размещен.<br /><u>Артикул заказа:</u>&nbsp; __ORDER_REF__<br /><u>Дата заказа:</u> __ДАТА__ЗАКАЗА<br /><u>Заказать продукты</u>:<br />__ПРОДУКТЫ__<br /><br /><span style="font-size:small"><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Вы можете просмотреть свой заказ и загрузить счет из <strong>&quot;Истории заказов&quot;</strong> раздел вашего аккаунта.</span></span></span></p><p>Спасибо за покупки у нас!<br />С наилучшими пожеланиями,<br />Команда <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong><span> class='notranslate'></p></span></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Здравствуйте)__ __ИМЯ__ПРОДАВЦА,<p>Мы рады сообщить вам, что вы получили новый заказ на <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> торговой площадке!<br /><br /><strong>Детали заказа:</strong><br /><u>Артикул заказа:</u>&nbsp; __ORDER_REF__<br /><u>Имя покупателя:</u>&nbsp; __ИМЯ_БУЙЕРА__<br /><u>Дата заказа:</u>&nbsp; __ДАТА_ЗАКАЗА__<br /><br /><u>Продукт:</u>&nbsp; __PRODUCT__<br /><u>Количество:</u>&nbsp; __QTY__<br /><br />Спасибо, что вы являетесь ценным продавцом на <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> торговой площадке!<br /><br />С уважением,<br />Компания <span> class='notranslate'><strong></span>__[MAIN_INFO_SOCIETE_NOM]__</strong> Команда</p></div>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=Упс! Страница не найдена.
 pageNotFoundDesc=Извините, но страница, которую вы ищете, не существует, была удалена или временно недоступна.
 pageNotEditable=Эту страницу нельзя редактировать или просматривать в редакторе. Вы можете просмотреть ее в новой вкладке.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> был <span> class='notranslate'>%s</span>.
 websitePurged= - Веб-сайт <b>%s</b> был очищен.
 templateImported= - Шаблон торговой площадки по умолчанию был импортирован на веб-сайт <b>%s</b>.
 websiteCreated= - Был создан специальный веб-сайт с реф. <b>%s</b>.
-DiscountsPreferedCustomers=Скидки для «привилегированных» потенциальных клиентов/покупателей
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Перепишите правила для включения в файл конфигурации виртуального хоста Apache.
 marketplaceGenerateRewriteFile= Вы также можете создать файл перезаписи Apache с отдельными правилами для каждого продукта (чтобы вручную включить его в конфигурацию виртуального хоста Apache)
 rewriteFileErrorNoProducts=Сначала вам необходимо импортировать продукцию.
@@ -237,3 +250,9 @@ PhotoViewLarger=Просмотреть больше
 moreInfo=Дополнительная информация
 products=Продукция
 dateNewestFirst=Дата: сначала новые
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free
