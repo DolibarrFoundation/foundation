@@ -14,6 +14,7 @@ MarketplaceSetup = Configuració del mercat
 Settings = Configuració
 MarketplaceSetupPage = Pàgina de configuració del mercat
 NewSection=Nova secció
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Categoria d'arrel per als productes per vendre al mercat
 MARKETPLACE_VERSIONS_CATEGORY_ID=Categoria per al giny "Versió" a la pàgina d'inici del lloc web de la placa de marca
 MARKETPLACE_SPECIAL_CATEGORY_ID=Categoria per al giny "Promocions" a la pàgina d'inici del lloc web del mercat
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Categoria per a tots els clients poten
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Percentatge de descompte per a clients potencials o "preferits".
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Categoria de productes a excloure del descompte
 ImportTip=Consells de migració
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = Sobre
 MarketplaceAboutPage = Marketplace sobre la pàgina
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Exemple de producte del mercat
 DefaultMarketPlaceCustomersCatLabel=Clients del mercat
 DefaultMarketPlaceVendorsCatLabel=Venedors del mercat
 DefaultMarketPlacePreferredCustomersCatLabel=Clients preferits del mercat
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Mai descomptes per a aquest producte
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Versió
 DolibarrMin=Dolibarr min
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=Plantilla de correu electrònic 
 BuyerOrderConfirmation=Confirmació de comanda
 SellerOrderNotification=Notificació de comanda
 marketplaceBuyerOrderConfirmationContent=<div><p>Hola __BUYER_NAME__,<br /> class='notranslate'><br /></span>Gràcies per la teva compra a <strong>__[MAIN_INFO_SOCIETE_NOM]__Mercattb0a65fc0a965! <br /><br />La teva comanda s'ha fet correctament.<br /><u>Referència de la comanda:</u>&nbsp; __ORDER_REF__<br /><u>Data de la comanda:</u> __ORDER_DATE__<br /><u>Comanda productes</u>:<br />__PRODUCTS__<br /><br /><span style="font-size:small"><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Pots revisar la teva comanda i descarregar la teva factura des de <strong>&quot;Historial de comandes&quot;b7165fc0 span> secció de la teva compte.</span></span></span></span></span></span></span> <p>Gràcies per comprar amb nosaltres!<br />Una salutació cordial,<br />The <span> class='notranslate'><strong></span>__[MAIN_INFO_SOCIETE_NOM]__</strong> Equipb0679c9a6a6><d4spanz6a6> class='notranslate'></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Hola)__ __SELLER_NAME__,<p>Ens complau informar-te que has rebut una comanda nova el <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!b05e000span1z4<span1z0</span> class='notranslate'><br /></span><strong>Detalls de la comanda:</strong><span class='notranslate'06bz0</strong><span class='notranslate'0504'01504<15040'06 /span><u>Referència de la comanda:</u>&nbsp; __ORDER_REF__<br /><u>Nom del comprador:</u>b0806a1z0 /span> __BUYER_NAME__<span class='notranslate'><br /><u>Data de la comanda:</u><span> class='notranslate'>&nbsp;</span> __ORDER_DATE__<br /><br /><u>Producte:</u>&nbsp; __PRODUCT__<span class='notranslate'0504'0504'0504'04'08d6a182be06fz0 /span><u>Quantitat:</u>&nbsp; __QTY__<br /><br />Gràcies per ser un venedor valuós a <strong>]MAINIET_INF_O_M_O_MAINIET__O_M <span class='notranslate'></strong> Marketplace!<br /><br />Una salutació cordial,<br />L'equip <strong>__[MAIN_INFO_SOCIETE_NOM]__b0a65d071ffc9z071f class='notranslate'></p></span></div>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=Vaja! No s'ha trobat la pàgina.
 pageNotFoundDesc=Ho sentim, però la pàgina que cerques no existeix, s'ha eliminat o no està disponible temporalment.
 pageNotEditable=Aquesta pàgina no es pot editar ni previsualitzar a l'editor. Podeu previsualitzar-lo en una pestanya nova.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> ha estat  %s.
 websitePurged= - El lloc web <b>%s</b> s'ha eliminat.
 templateImported= - La plantilla del mercat predeterminada s'ha importat al lloc web <b>%s</b> .
 websiteCreated= - S'ha creat un lloc web dedicat amb la referència <b>%s</b>.
-DiscountsPreferedCustomers=Descomptes per a clients potencials/clients "preferits".
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Reescriu les regles per incloure-les al fitxer de configuració de l'amfitrió virtual d'Apache
 marketplaceGenerateRewriteFile= També podeu generar un fitxer de reescriptura d'Apache amb regles separades per a cada producte (per incloure-hi manualment a la vostra configuració de l'amfitrió virtual d'Apache)
 rewriteFileErrorNoProducts=Primer heu d'importar els productes.
@@ -237,3 +250,9 @@ PhotoViewLarger=Veure més gran
 moreInfo=Més informació
 products=Productes
 dateNewestFirst=Data: primer el més recent
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free

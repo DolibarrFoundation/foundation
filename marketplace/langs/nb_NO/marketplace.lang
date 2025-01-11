@@ -14,6 +14,7 @@ MarketplaceSetup = Markedsplassoppsett
 Settings = Innstillinger
 MarketplaceSetupPage = Markedsplass-oppsettside
 NewSection=Ny seksjon
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Rotkategori for produkter som skal selges på markedsplassen
 MARKETPLACE_VERSIONS_CATEGORY_ID=Kategori for widgeten "Versjon" på hjemmesiden til merkeskiltnettstedet
 MARKETPLACE_SPECIAL_CATEGORY_ID=Kategori for widgeten "Kampanjer" på hjemmesiden til markedsplassens nettsted
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Kategori for alle prospekter eller kun
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Rabattprosent for "Foretrukket" prospekter eller kunder
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Kategori for produkter som skal ekskluderes fra rabatten
 ImportTip=Migrasjonstips
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = Om
 MarketplaceAboutPage = Markedsplass om side
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Eksempel på markedsplassprodukt
 DefaultMarketPlaceCustomersCatLabel=Markedsplasskunder
 DefaultMarketPlaceVendorsCatLabel=Markedsplassselgere
 DefaultMarketPlacePreferredCustomersCatLabel=Markedsplass foretrukne kunder
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Aldri rabatter for dette produktet
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Versjon
 DolibarrMin=Dolibarr min.
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=E-postmal for e-posten "Selgeres
 BuyerOrderConfirmation=Ordrebekreftelse
 SellerOrderNotification=Bestillingsvarsling
 marketplaceBuyerOrderConfirmationContent=<div><p>Hei __BUYER_NAME__,<br /><span> class='notranslate'><br /></span>Takk for kjøpet på <strong>__[MAIN_INFO_SOCIETE_NOM]__b0a6fc Marketplace 91f65d <span class='notranslate'><br /><br />Bestillingen din er plassert.<br /><u>Bestillingsreferanse:</u>&nbsp; __ORDER_REF__<br /><u>Bestillingsdato:</u> __ORDER_DATE__<br /><u>Bestill produkter</u>:<br />__PRODUCTS__<br /><br /><span class='051spand792z</051spand792z> ><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Du kan se gjennom bestillingen din og laste ned fakturaen fra <strong>&quot;Ordrehistorikk&quot;</strong> delen av kontoen din.</span></span></span>9a6aspand>9a6a69d>9a6a69d <span class='notranslate'><p>Takk for at du handler hos oss!<br />Vennlig hilsen<br /> class='notranslate'><strong></span>__[MAIN_INFO_SOCIETE_NOM]__</strong> Teamb0679c9a6aspand><3z0</64> class='notranslate'></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Hei)__ __SELLER_NAME__,<p>Vi er glade for å kunne informere deg om at du har mottatt en ny bestilling <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Markedsplass!b05e00><61spanz04 class='notranslate'><br /></span><strong>Bestillingsdetaljer:</strong><spana class='05e4e06' /span><u>Bestillingsreferanse:</u>&nbsp; __ORDER_REF__<br /><u>Kjøpernavn:</u><span class='notranslate6a'>b08 /span> __BUYER_NAME__<br /><u>Bestillingsdato:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Produkt:</u>&nbsp; __PRODUCT__<span class='e4c6b /span><u>Antall:</u>&nbsp; __QTY__<spana class='054c0z>054c0z /span><br />Takk for at du er en verdsatt selger på <strong>__[MAIN_INFO_SOCIETE_NOM]__f070zf</span>90b Markedsplass!<br /><br />Vennlig hilsen<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Teamb0679c9a6aspand><3z0</64> class='notranslate'></div>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=Oops! Siden ble ikke funnet.
 pageNotFoundDesc=Beklager, men siden du leter etter eksisterer ikke, har blitt fjernet eller er midlertidig utilgjengelig.
 pageNotEditable=Denne siden kan ikke redigeres eller forhåndsvises i redigeringsprogrammet. Du kan forhåndsvise den i en ny fane.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> har blitt  %s.
 websitePurged= – Nettstedet <b>%s</b> har blitt slettet.
 templateImported= – Standard markedsplassmal er importert til nettstedet <b>%s</b> .
 websiteCreated= - Dedikert nettsted med ref <b>%s</b> ble opprettet.
-DiscountsPreferedCustomers=Rabatter til "foretrukket" prospekter/kunder
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Omskriv regler som skal inkluderes i konfigurasjonsfilen for den virtuelle Apache-verten
 marketplaceGenerateRewriteFile= Du kan også generere en Apache-omskrivingsfil med separate regler for hvert produkt (for å inkludere manuelt i din Apache virtuelle vertskonf.)
 rewriteFileErrorNoProducts=Du må importere produkter først.
@@ -237,3 +250,9 @@ PhotoViewLarger=Vis større
 moreInfo=Mer info
 products=Produkter
 dateNewestFirst=Dato: nyeste først
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free

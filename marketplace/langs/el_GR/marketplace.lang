@@ -14,6 +14,7 @@ MarketplaceSetup = Ρύθμιση Marketplace
 Settings = Ρυθμίσεις
 MarketplaceSetupPage = Σελίδα ρύθμισης Marketplace
 NewSection=Νέα ενότητα
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Κατηγορία ρίζας για προϊόντα προς πώληση στην αγορά
 MARKETPLACE_VERSIONS_CATEGORY_ID=Κατηγορία για το γραφικό στοιχείο "Έκδοση" στην αρχική σελίδα του ιστότοπου markeplate
 MARKETPLACE_SPECIAL_CATEGORY_ID=Κατηγορία για το γραφικό στοιχείο "Προσφορές" στην αρχική σελίδα του ιστότοπου της αγοράς
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Κατηγορία για όλους �
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Ποσοστό έκπτωσης για «Προτιμώμενους» υποψήφιους ή πελάτες
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Κατηγορία για προϊόντα προς εξαίρεση από την έκπτωση
 ImportTip=Συμβουλές μετανάστευσης
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = Για
 MarketplaceAboutPage = Marketplace σχετικά με τη σελίδα
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Παράδειγμα προϊόντος Marketplace
 DefaultMarketPlaceCustomersCatLabel=Πελάτες της αγοράς
 DefaultMarketPlaceVendorsCatLabel=Πωλητές της αγοράς
 DefaultMarketPlacePreferredCustomersCatLabel=Προτιμώμενοι πελάτες της αγοράς
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Ποτέ εκπτώσεις για αυτό το προϊόν
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Έκδοση
 DolibarrMin=Dolibarr min
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=Πρότυπο email για το
 BuyerOrderConfirmation=Επιβεβαίωση παραγγελίας
 SellerOrderNotification=Ειδοποίηση παραγγελίας
 marketplaceBuyerOrderConfirmationContent=<div><p>Γεια σας __BUYER_NAME__,b05e00a5e44c10><z class='notranslate'><br />Σας ευχαριστούμε για την αγορά σας στο <strong>__[MAIN_INFO_SOCIETE_NOM]__<span class='nof66f5><strong></span>__[MAIN_INFO_SOCIETE_NOM]__<span class='nof66f5> Αγορά!<br /><br />Η παραγγελία σας πραγματοποιήθηκε με επιτυχία.b05e00a5e44c class='notranslate'><u>Αναφορά παραγγελίας:</u>&nbsp; __ORDER_RE class='notranslate'><br /></span><u>Ημερομηνία παραγγελίας:</u> ___ORDER_D class='notranslate'><br /></span><u>Παραγγελία προϊόντων</u>:<br />__PRODUCTS__<br /><br /></s class='notranslate'><span style="font-size:small"><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Μπορείτε να ελέγξετε την παραγγελία σας και να κατεβάσετε το τιμολόγιο <spanice class='notranslate'><strong></span>&quot;Ιστορικό παραγγελιών&quot;</strong> ενότητα του λογαριασμού σας.</span></span></span></p><p>Σας ευχαριστούμε για τις αγορές σας!<span>! class='notranslate'><br /></span>Με φιλικούς χαιρετισμούς,<br />Το <strong>[MAIN_TE_span] class='notranslate'></strong> Ομάδα</p></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Γεια)__ __SELLER_NAME__,<p>Είμαστε στην ευχάριστη θέση να σας ενημερώσουμε ότι λάβατε μια νέα παραγγελία στις <s class='notranslate'><strong></span>__[MAIN_INFO_SOCIETE_NOM]__</strong> Αγορά!<span class='notranslate'01aspanz</spane</span>b040 class='notranslate'><br /></span><strong>Λεπτομέρειες παραγγελίας:</strong><s class='notranslate'><br /></span><u>Αναφορά παραγγελίας:</u>&nbsp; __ORDER_REF__<br /><u></span:<span>Buyer class='notranslate'></u>&nbsp; __BUYER_NAME__<br /></span class='notranslate'><u>Ημερομηνία παραγγελίας:</u>&nbsp; __ORDER_DATE class='notranslate'><br /></span><br /><u>Προϊόν:</u>&nbsp; __PRODUCT__<br /><u>Ποσότητα:</u>&nbsp; __QTY__<s class='notranslate'><br /></span><br />Σας ευχαριστούμε που είστε πολύτιμος πωλητής στο <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Αγορά!<span class='notranslate'01aspanz</spane</span>b040 class='notranslate'><br /></span>Με φιλικούς χαιρετισμούς,<br />Το <strong>[MAIN_TE_span] class='notranslate'></strong> Ομάδα</p></div>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=Ωχ! Η σελίδα δεν βρέθηκε.
 pageNotFoundDesc=Λυπούμαστε, αλλά η σελίδα που αναζητάτε δεν υπάρχει, έχει αφαιρεθεί ή δεν είναι προσωρινά διαθέσιμη.
 pageNotEditable=Δεν είναι δυνατή η επεξεργασία ή η προεπισκόπηση αυτής της σελίδας στο πρόγραμμα επεξεργασίας. Μπορείτε να το κάνετε προεπισκόπηση σε μια νέα καρτέλα.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> έχει %s.
 websitePurged= - Ο ιστότοπος <b>%s</b> έχει διαγραφεί.
 templateImported= - Το προεπιλεγμένο πρότυπο marketplace έχει εισαχθεί στον ιστότοπο <b>%s</b> .
 websiteCreated= - Δημιουργήθηκε αποκλειστικός ιστότοπος με αναφορά <b>%s</b>.
-DiscountsPreferedCustomers=Εκπτώσεις για «προτιμώμενους» υποψήφιους/πελάτες
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Επαναγράψτε κανόνες για να συμπεριλάβετε στο αρχείο διαμόρφωσης εικονικού κεντρικού υπολογιστή Apache
 marketplaceGenerateRewriteFile= Μπορείτε επίσης να δημιουργήσετε ένα αρχείο επανεγγραφής Apache με χωριστούς κανόνες για κάθε προϊόν (για να συμπεριλάβετε χειροκίνητα στη διαμόρφωση εικονικού κεντρικού υπολογιστή Apache)
 rewriteFileErrorNoProducts=Πρέπει πρώτα να εισάγετε προϊόντα.
@@ -237,3 +250,9 @@ PhotoViewLarger=Προβολή μεγαλύτερη
 moreInfo=Περισσότερες πληροφορίες
 products=Προϊόντα
 dateNewestFirst=Ημερομηνία: πρώτα το νεότερο
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free

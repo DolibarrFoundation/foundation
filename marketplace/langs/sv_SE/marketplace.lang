@@ -14,6 +14,7 @@ MarketplaceSetup = Inställning av marknadsplats
 Settings = Inställningar
 MarketplaceSetupPage = Inställningssida för Marketplace
 NewSection=Nytt avsnitt
+MARKETPLACE_NAME=Market place name
 MARKETPLACE_ROOT_CATEGORY_ID=Rotkategori för produkter att sälja på marknadsplatsen
 MARKETPLACE_VERSIONS_CATEGORY_ID=Kategori för widgeten "Version" på startsidan för markeringswebbplatsen
 MARKETPLACE_SPECIAL_CATEGORY_ID=Kategori för widgeten "Kampanjer" på startsidan för marknadsplatsens webbplats
@@ -30,6 +31,16 @@ MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Kategori för alla potentiella kunder 
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Rabattprocent för "Preferred" prospekt eller kunder
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Kategori för produkter att utesluta från rabatten
 ImportTip=Migrationstips
+MarketPlaceSetupPayment=Setup of payments
+UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
+MarketplaceSetupPaymentPage1=When using the payment into a separated page, no particular setup is required. The marketplace shop will redirect the user to your backoffic public payment pages.
+MarketplaceSetupPaymentPage1Pro=No setup to do
+MarketplaceSetupPaymentPage1Cons=The payment public pages of your backoffice application (so its domain) are visible
+MarketplaceSetupPaymentPage2=When using the payment into a frame, the payment page of you backoffice is called using an url of your markeplace shop. A setup of your web server will make the request to be redirected from server side to your backoffice payment public pages.
+MarketplaceSetupPaymentPage2Pro=Need to add proxy rules on the payment URL to reach your Dolibarr application
+MarketplaceSetupPaymentPage2Cons=The payment public pages of your backoffice application are not visible and can be blocked from any externall access.
+
+
 
 About = Om
 MarketplaceAboutPage = Marknadsplats om sidan
@@ -41,7 +52,9 @@ DefaultPOSProductLabel=Exempel på marknadsplatsprodukt
 DefaultMarketPlaceCustomersCatLabel=Marknadskunder
 DefaultMarketPlaceVendorsCatLabel=Marknadsförsäljare
 DefaultMarketPlacePreferredCustomersCatLabel=Marknadsföredragna kunder
-DefaultMarketPlaceProductsCatDiscountExcludeLabel=Aldrig rabatter för denna produkt
+DefaultMarketPlaceProductsCatDiscountExcludeLabel=Never any discount for these product
+DefaultMarketPlaceVersions=Marketplace versions
+DefaultMarketPlaceDiscounts=Marketplace discounts
 
 ModuleVersion=Version
 DolibarrMin=Dolibarr min
@@ -170,7 +183,7 @@ MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE=E-postmall för e-postmeddelande
 BuyerOrderConfirmation=Orderbekräftelse
 SellerOrderNotification=Beställningsmeddelande
 marketplaceBuyerOrderConfirmationContent=<div><p>Hej __BUYER_NAME__,<br /><span> class='notranslate'><br /></span>Tack för ditt köp på <strong>__[MAIN_INFO_SOCIETE_NOM]__b0a6dc Marketplace! <span class='notranslate'><br /><br />Din beställning har genomförts.<br /><u>Beställningsreferens:</u>&nbsp; __ORDER_REF__<br /><u>Beställningsdatum:</u> __ORDER_DATE__<br /><u>Beställ produkter</u>:<br />__PRODUCTS__<br /><br /><span class='051spand791z</051spand792> ><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">Du kan granska din beställning och ladda ner din faktura från <strong>&quot;Beställningshistorik&quot;</strong> i ditt konto.</span></span></span>b06aspanc>9a46aspand>9a4679z <span class='notranslate'><p>Tack för att du handlade hos oss!<br />Värliga hälsningar,<br /> class='notranslate'><strong></span>__[MAIN_INFO_SOCIETE_NOM]__</strong> Teamb0679c9a6aspand><3z0</64> class='notranslate'></div>
-marketplaceSellersOrderConfirmationContent=<div>__(Hej)__ __SELLER_NAME__,<p>Vi är glada att kunna meddela dig att du har fått en ny beställning den <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marknadsplats!b05e00a5espanz04</c><61spanz04 class='notranslate'><br /><strong>Beställningsinformation:</strong><spanab class='05e4e'0z> /span><u>Beställningsreferens:</u>&nbsp; __ORDER_REF__<br /><u>Köparens namn:</u><span class='notranslate6a'>b08 /span> __BUYER_NAME__<br /><u>Beställningsdatum:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Produkt:</u>&nbsp; __PRODUCT__<span class='05e4c6b01 /span><u>Antal:</u>&nbsp; __QTY__<spana class='05e4'0z>05e4'0z> /span><br />Tack för att du är en uppskattad säljare på <strong>__[MAIN_INFO_SOCIETE_NOM]__f070zf</span>f</span> Marknadsplats!<br /><br />Med vänlig hälsning,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Teamb0679c9a6aspand><3z0</64> class='notranslate'></div>
+marketplaceSellersOrderConfirmationContent=<div>__(Hello)__ __SELLER_NAME__,<p>We are excited to inform you that you have received a new order on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br /><strong>Order Details:</strong><br /><u>Order Reference:</u>&nbsp; __ORDER_REF__<br /><u>Buyer Name:</u>&nbsp; __BUYER_NAME__<br /><u>Buyer Email:</u>&nbsp; __BUYER_EMAIL__<br /><u>Order Date:</u>&nbsp; __ORDER_DATE__<br /><br /><u>Product:</u>&nbsp; __PRODUCT__<br /><u>Quantity:</u>&nbsp; __QTY__<br /><br />Thank you for being a valued seller on <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace!<br /><br />Best regards,<br />The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p></div>
 pageNotFound=hoppsan! Sidan hittades inte.
 pageNotFoundDesc=Tyvärr, men sidan du letar efter finns inte, har tagits bort eller är tillfälligt otillgänglig.
 pageNotEditable=Den här sidan kan inte redigeras eller förhandsgranskas i redigeraren. Du kan förhandsgranska den på en ny flik.
@@ -178,7 +191,7 @@ emailTemplateLoaded= - <b>%s</b> har varit  %s.
 websitePurged= - Webbplatsen <b>%s</b> har rensats.
 templateImported= - Standardmarknadsplatsmallen har importerats till webbplatsen <b>%s</b> .
 websiteCreated= - Dedikerad webbplats med ref <b>%s</b> skapades.
-DiscountsPreferedCustomers=Rabatter till "föredragna" prospekt/kunder
+DiscountsPreferedCustomers=Discounts for a given category of prospects/customers
 marketplaceRewriteRules= Skriv om regler som ska inkluderas i konfigurationsfilen för din virtuella Apache-värd
 marketplaceGenerateRewriteFile= Du kan också skapa en Apache-omskrivningsfil med separata regler för varje produkt (att inkludera manuellt i din Apache virtuella värdkonf.)
 rewriteFileErrorNoProducts=Du måste importera produkter först.
@@ -237,3 +250,9 @@ PhotoViewLarger=Visa större
 moreInfo=Mer info
 products=Produkter
 dateNewestFirst=Datum: nyaste först
+newProducts=New products
+invalidLink= Invalid link
+unfoundedOrder=Order not found
+productNotFoundInOrder=Product not found in order
+FileNotFound=File not found
+paiedProduct=This link is unvalid because this product is not free
