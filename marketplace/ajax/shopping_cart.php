@@ -114,11 +114,11 @@ if(isset($_POST['load_cart']) && $_POST['load_cart'] == 1)
         <div class="cart-prices">
             <div class="cart-prices-line first-line">
                 <span class="price cart_block_shipping_cost ajax_cart_shipping_cost"> '.$langs->trans("FreeShipping").' </span>
-                <span> '.$langs->trans("shipping").' </span>
+                <span> '.$langs->trans("Shipping").' </span>
             </div>
             <div class="cart-prices-line last-line">
                 <span class="price cart_block_total ajax_block_cart_total">' . $total . ' €</span>
-                <span>'.$langs->trans("total").'</span>
+                <span>'.$langs->trans("Total").'</span>
             </div>
             <p> '.$langs->trans("pricesMayVaryDependingOnYourCountry").' </p>
         </div>
