@@ -259,3 +259,5 @@ FileNotFound=File not found
 paiedProduct=This link is unvalid because this product is not free
 model=Ref
 print=Print
+MarketPlaceBusinessNumber=Business Registration Number
+MarketPlaceTIN=Tax Identification Number
