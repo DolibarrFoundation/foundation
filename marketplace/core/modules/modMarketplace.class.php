@@ -781,7 +781,7 @@ class modMarketplace extends DolibarrModules
 			}
 		}
 		if (!getDolGlobalInt("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE") && $id_template > 0) {
-			dolibarr_set_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $id_template, 'chaine', 0, 'Name of forgot password email template', $conf->entity);
+			dolibarr_set_const($this->db, 'MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE', $id_template, 'chaine', 0, 'Name of forgot password email template', $conf->entity);
 			//setEventMessages($langs->trans("emailTemplateLoaded", $langs->transnoentitiesnoconv("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"), $emailAction), null, 'warnings');
 		}
 
