@@ -1271,7 +1271,7 @@ body {
   left: 0;
   bottom: -1px;
   width: 100%;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/price-container-bg.png);
+  background: #999;
   padding: 9px 0;
   display: none;
 }
