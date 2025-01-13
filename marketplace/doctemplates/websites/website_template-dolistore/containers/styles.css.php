@@ -1271,7 +1271,7 @@ body {
   left: 0;
   bottom: -1px;
   width: 100%;
-  background: #999;
+  background: #000;
   padding: 9px 0;
   display: none;
 }
