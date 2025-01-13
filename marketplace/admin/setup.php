@@ -150,6 +150,9 @@ $formSetup->newItem('Miscellaneous')->setAsTitle();
 // Setup conf for the name of the Market place
 $formSetup->newItem('MARKETPLACE_NAME');
 
+// Setup conf for the email of the Market place
+$formSetup->newItem('MARKETPLACE_EMAIL');
+
 $formSetup->newItem('Products')->setAsTitle();
 
 // Setup conf for root category of proucts to sell
