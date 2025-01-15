@@ -740,7 +740,13 @@ class modMarketplace extends DolibarrModules
 		// Create MARKETPLACE_WELCOME_EMAIL_TEMPLATE
 		$id_template = $tmpmailtemplate->fetch(0, '(welcomeToMarketplace)');
 		if ($id_template <= 0) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 110, '__(welcomeTo)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceWelcomeEmailContent)__', ".((int) $conf->entity).", 1, 1);";
+			$email_content = "__(Hello)__ __USER_NAME__,
+			<p>__(emailTemplateWelcome)__ <strong>__[MARKETPLACE_NAME]__</strong> __(marketplace)__! __(emailTemplateAccountCreated)__</p>
+			<p>__(emailTemplateLogToExplore)__</p>
+			<p>__(emailTemplateRegards)__</p>
+			<p><strong>__(emailTemplateTeam)__</p>";
+
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 110, '__(welcomeTo)__ __[MARKETPLACE_NAME]__ __(marketplace)__', null, 0, 0, '" . $email_content . "', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
@@ -756,7 +762,16 @@ class modMarketplace extends DolibarrModules
 		// Create MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE
 		$id_template = $tmpmailtemplate->fetch(0, '(resetPasswordMarketplace)');
 		if ($id_template <= 0) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(resetPasswordMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 120, '__(passwordResetRequest)__ [__[MAIN_INFO_SOCIETE_NOM]__]', null, 0, 0,'__(marketplaceResetPasswordEmailContent)__', ".((int) $conf->entity).", 1, 1);";
+			$email_content = '__(Hello)__ __USER_NAME__,
+			<p>__(emailTemplatePasswordChangeMessage)__</p>
+			<p>__(emailTemplateIgnoreRequest)__</p>
+			<p>__(emailTemplateInstruction)__</p>
+			<p>__(emailTemplateResetPasswordLink)__</p>
+			<p>__(emailTemplateContactSupport)__</p>
+			<p>__(emailTemplateRegards)__</p>
+			<p>__(emailTemplateTeam)__</p>';
+
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(resetPasswordMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 120, '__(passwordResetRequest)__ [__[MARKETPLACE_NAME]__]', null, 0, 0, '" . $email_content . "' , ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
@@ -772,7 +787,25 @@ class modMarketplace extends DolibarrModules
 		// Create MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE
 		$id_template = $tmpmailtemplate->fetch(0, '(BuyerOrderConfirmation)');
 		if ($id_template <= 0) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(BuyerOrderConfirmation)', '', 'marketplace', 'order_send', null, 0, 140, '__(BuyerOrderConfirmation)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceBuyerOrderConfirmationContent)__', ".((int) $conf->entity).", 1, 1);";
+			$email_content = '<div>
+			<p>__(Hello)__ __BUYER_NAME__,<br />
+			<br />
+			__(emailTemplateThanksForPurchase)__<br />
+			<br />
+			__(emailTemplateOrderPlaced)__<br />
+			<u>__(emailTemplateOrderRef)__ :</u> __ORDER_REF__<br />
+			<u>__(emailTemplateOrderDate)__ :</u> __ORDER_DATE__<br />
+			<u>__(emailTemplateOrderProducts)__</u>:<br />
+			__PRODUCTS__<br />
+			<br />
+			<span style="font-size:small"><span style="font-family:Open-sans,sans-serif"><span style="color:#555454">__(emailTemplateInstructionToSeeDetails)__</span></span></span></p>
+
+			<p>__(emailTemplateThanksForShopping)__<br />
+			__(emailTemplateRegards)__<br />
+			__(emailTemplateTeam)__</p>
+			</div>';
+
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(BuyerOrderConfirmation)', '', 'marketplace', 'order_send', null, 0, 140, '__(BuyerOrderConfirmation)__ __[MARKETPLACE_NAME]__ __(marketplace)__', null, 0, 0, '" . $email_content . "', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
@@ -788,7 +821,26 @@ class modMarketplace extends DolibarrModules
 		// Create MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE
 		$id_template = $tmpmailtemplate->fetch(0, '(SellerOrderNotification)');
 		if ($id_template <= 0) {
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(SellerOrderNotification)', '', 'marketplace', 'order_send', null, 0, 130, '__(SellerOrderNotification)__ __[MAIN_INFO_SOCIETE_NOM]__ __(marketplace)__', null, 0, 0, '__(marketplaceSellersOrderConfirmationContent)__', ".((int) $conf->entity).", 1, 1);";
+			$email_content = '<div>__(Hello)__ __SELLER_NAME__,
+			<p>__(emailTemplateNotificationMessage)__<br />
+			<br />
+			<strong>__(emailTemplateOrderDetails)__:</strong><br />
+			<u>__(emailTemplateOrderRef)__ :</u>&nbsp; __ORDER_REF__<br />
+			<u>__(emailTemplateBuyerName)__ :</u>&nbsp; __BUYER_NAME__<br />
+			<u>__(emailTemplateBuyerEmail)__ :</u>&nbsp; __BUYER_EMAIL__<br />
+			<u>__(emailTemplateOrderDate)__ :</u>&nbsp; __ORDER_DATE__<br />
+			<br />
+			<u>__(emailTemplateProduct)__ :</u>&nbsp; __PRODUCT__<br />
+			<u>__(emailTemplateProductQuantity)__ :</u>&nbsp; __QTY__<br />
+			<br />
+			__(emailTemplateThanksForBeingAValuedSeller)__<br />
+			<br />
+			__(emailTemplateRegards)__<br />
+			__(emailTemplateTeam)__</p>
+			</div>
+			';
+
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(SellerOrderNotification)', '', 'marketplace', 'order_send', null, 0, 130, '__(SellerOrderNotification)__ __[MARKETPLACE_NAME]__ __(marketplace)__', null, 0, 0, '" . $email_content . "', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
