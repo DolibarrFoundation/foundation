@@ -837,8 +837,8 @@ class modMarketplace extends DolibarrModules
 			<u>__(emailTemplateIdProfTwo)__ :</u>&nbsp; __BUYER_IDPROF2__<br />
 			<u>__(emailTemplateTvaIntra)__ :</u>&nbsp; __BUYER_TVAINTRA__<br />
 			<br />
-			<u>__(emailTemplateProductRef)__ :</u>&nbsp; __PRODUCTREF__<br />
 			<u>__(emailTemplateProduct)__ :</u>&nbsp; __PRODUCT__<br />
+			<u>__(emailTemplateProductRef)__ :</u>&nbsp; __PRODUCTREF__<br />
 			<u>__(emailTemplateProductQuantity)__ :</u>&nbsp; __QTY__<br />
 			<br />
 			__(emailTemplateThanksForBeingAValuedSeller)__<br />
