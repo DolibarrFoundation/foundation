@@ -741,12 +741,12 @@ class modMarketplace extends DolibarrModules
 		$id_template = $tmpmailtemplate->fetch(0, '(welcomeToMarketplace)');
 		if ($id_template <= 0) {
 			$email_content = "__(Hello)__ __USER_NAME__,
-			<p>__(emailTemplateWelcome)__ <strong>__[MARKETPLACE_NAME]__</strong> __(marketplace)__! __(emailTemplateAccountCreated)__</p>
+			<p>__(emailTemplateWelcome)__ <strong>__[MARKETPLACE_NAME]__</strong> ! __(emailTemplateAccountCreated)__</p>
 			<p>__(emailTemplateLogToExplore)__</p>
 			<p>__(emailTemplateRegards)__</p>
 			<p><strong>__(emailTemplateTeam)__</p>";
 
-			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 110, '__(welcomeTo)__ __[MARKETPLACE_NAME]__ __(marketplace)__', null, 0, 0, '" . $email_content . "', ".((int) $conf->entity).", 1, 1);";
+			$email_sql = "INSERT INTO ".MAIN_DB_PREFIX."c_email_templates (label, lang, module, type_template, fk_user, private, position, topic, email_from, joinfiles, defaultfortype, content, entity, active, enabled) VALUES ('(welcomeToMarketplace)', '', 'marketplace', 'thirdparty', null, 0, 110, '__(welcomeTo)__ __[MARKETPLACE_NAME]__', null, 0, 0, '" . $email_content . "', ".((int) $conf->entity).", 1, 1);";
 			$result = $this->db->query($email_sql);
 			if ($result) {
 				$id_template = $this->db->last_insert_id(MAIN_DB_PREFIX."c_email_templates");
@@ -828,8 +828,15 @@ class modMarketplace extends DolibarrModules
 			<u>__(emailTemplateOrderRef)__ :</u>&nbsp; __ORDER_REF__<br />
 			<u>__(emailTemplateBuyerName)__ :</u>&nbsp; __BUYER_NAME__<br />
 			<u>__(emailTemplateBuyerEmail)__ :</u>&nbsp; __BUYER_EMAIL__<br />
+			<u>__(emailTemplateBuyerAddress)__ :</u>&nbsp; __BUYER_ADDRESS__<br />
+			<u>__(emailTemplateBuyerZip)__ :</u>&nbsp; __BUYER_ZIP__<br />
+			<u>__(emailTemplateBuyerTown)__ :</u>&nbsp; __BUYER_TOWN__<br />
+			<u>__(emailTemplateBuyerCountry)__ :</u>&nbsp; __BUYER_COUNTRY__<br />
+			<u>__(emailTemplateIdProfTwo)__ :</u>&nbsp; __BUYER_IDPROF2__<br />
+			<u>__(emailTemplateTvaIntra)__ :</u>&nbsp; __BUYER_TVAINTRA__<br />
 			<u>__(emailTemplateOrderDate)__ :</u>&nbsp; __ORDER_DATE__<br />
 			<br />
+			<u>__(emailTemplateProductRef)__ :</u>&nbsp; __PRODUCTREF__<br />
 			<u>__(emailTemplateProduct)__ :</u>&nbsp; __PRODUCT__<br />
 			<u>__(emailTemplateProductQuantity)__ :</u>&nbsp; __QTY__<br />
 			<br />
