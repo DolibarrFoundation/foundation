@@ -191,6 +191,16 @@ $dicountValue->cssClass = 'width40';
 $formSetup->newItem('MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID')->setAsCategory('product');
 
 
+// Membership
+if (isModEnabled("member")) {
+	$formSetup->newItem('Members')->setAsTitle();
+	
+	// Setup conf for category Promotions
+	$formSetup->newItem('MARKETPLACE_MEMBER_CATEGORY_ADMIN_ID')->setAsCategory('member');
+}
+
+
+// Websites
 $formSetup->newItem('WebSite')->setAsTitle();
 
 // Setup conf for URL of logo

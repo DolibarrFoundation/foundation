@@ -31,6 +31,7 @@ MARKETPLACE_BLOCK_SALES=Block sales on the marketplace
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_ID=Category for all prospects or customers labeled as "Preferred" or qualified for the discount
 MARKETPLACE_PROSPECTCUSTOMER_PREFERRED_DISCOUNT=Discount percentage for "Preferred" prospects or customers
 MARKETPLACE_DISCOUNT_EXCLUDE_PRODUCTS_CATEGORY_ID=Category for products to exclude from the discount
+MARKETPLACE_MEMBER_CATEGORY_ADMIN_ID=Category of members that are admin of the marketplace
 ImportTip=Migration tips
 MarketPlaceSetupPayment=Setup of payments
 UseFrameDesc=Include the payment pages provided by Dolibarr inside a frame of the market place shop (advanced users)
