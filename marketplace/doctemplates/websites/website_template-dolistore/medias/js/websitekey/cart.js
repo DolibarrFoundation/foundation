@@ -11,24 +11,24 @@ $(document).ready(function(){
     }
     $(document).on('touchstart', '#header .shopping_cart a:first', function() {
         if ($(this).next('.cart_block:visible').length)
-            $("#header .cart_block").stop(true, true).slideUp(450);
+            $("#header .cart_block").stop(true, true).slideUp(100);
         else
-            $("#header .cart_block").stop(true, true).slideDown(450);
+            $("#header .cart_block").stop(true, true).slideDown(100);
         e.preventDefault();
         e.stopPropagation();
     });
     $("#header .shopping_cart a:first").hover(function() {
-        $("#header .cart_block").stop(true, true).slideDown(450);
+        $("#header .cart_block").stop(true, true).slideDown(100);
     }, function() {
         setTimeout(function() {
             if (!shopping_cart.isHoveringOver() && !cart_block.isHoveringOver())
-                $("#header .cart_block").stop(true, true).slideUp(450);
+                $("#header .cart_block").stop(true, true).slideUp(100);
         }, 200);
     });
     $("#header .cart_block").hover(function() {}, function() {
         setTimeout(function() {
             if (!shopping_cart.isHoveringOver())
-                $("#header .cart_block").stop(true, true).slideUp(450);
+                $("#header .cart_block").stop(true, true).slideUp(100);
         }, 200);
     });
     $(document).on('click', '#layer_cart .cross, #layer_cart .continue, .layer_cart_overlay', function(e) {
