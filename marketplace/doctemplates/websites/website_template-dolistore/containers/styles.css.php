@@ -344,13 +344,6 @@ body {
 .bodywebsite .clearfix:after {
   clear: both;
 }
-@font-face {
-  font-family: FontAwesome;
-  src: url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.eot?v=3.2.1);
-  src: url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.eot?#iefix&v=3.2.1) format("embedded-opentype"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.woff?v=3.2.1) format("woff"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.ttf?v=3.2.1) format("truetype"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1) format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
 .bodywebsite [class^=icon-] {
   font-family: FontAwesome;
   font-weight: 400;
@@ -390,6 +383,12 @@ body {
 .bodywebsite td.download_icon {
     text-align: center;
 }
+
+/* Disable the button to add external link of ckeditor */
+a#cke_56 {
+    display: none;
+}
+
 
 @media only screen and (min-width: 1200px) {
   .bodywebsite .container {
@@ -462,6 +461,17 @@ body {
 .bodywebsite .unvisible {
   display: none;
 }
+
+.bodywebsite .cke_dialog_body {
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 20px #ddd;
+}
+
+.bodywebsite a.cke_dialog_ui_button_ok {
+    background-color: #a45931;
+    border-color: #a45931;
+}
+
 .bodywebsite a.button,
 .bodywebsite span.button {
   position: relative;
@@ -2227,40 +2237,10 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-/*.bodywebsite a,
-.bodywebsite b,
-.bodywebsite body,
-.bodywebsite div,
-.bodywebsite footer,
-.bodywebsite form,
-.bodywebsite h1,
-.bodywebsite h2,
-.bodywebsite h3,
-.bodywebsite h4,
-.bodywebsite h5,
-.bodywebsite header,
-.bodywebsite html,
-.bodywebsite i,
-.bodywebsite img,
-.bodywebsite label,
-.bodywebsite li,
-.bodywebsite nav,
-.bodywebsite p,
-.bodywebsite section,
-.bodywebsite span,
-.bodywebsite strong,
-.bodywebsite table,
-.bodywebsite tbody,
-.bodywebsite td,
-.bodywebsite tr,
-.bodywebsite ul {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}*/
+.bodywebsite a.product-name.truncate2 {
+   max-height: 45px;
+}
+
 .bodywebsite html {
   line-height: 1;
   font-family: sans-serif;
@@ -2617,13 +2597,6 @@ body {
 .bodywebsite .hidden {
   display: none!important;
   visibility: hidden !important;
-}
-@font-face {
-  font-family: fontawesome;
-  src: url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.eot?v=3.2.1);
-  src: url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.eot?#iefix&v=3.2.1) format("embedded-opentype"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.woff?v=3.2.1) format("woff"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.ttf?v=3.2.1) format("truetype"), url(https://www.dolistore.com/themes/dolibarr-bootstrap/font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1) format("svg");
-  font-weight: 400;
-  font-style: normal;
 }
 .bodywebsite [class^=icon-] {
   font-family: FontAwesome;
@@ -4556,7 +4529,7 @@ body {
 }
 .bodywebsite .content_scene_cat .content_scene_cat_bg {
   padding: 18px 10px 10px 42px;
-  background-color: #464646 !important;
+  background-color: #111 !important;
 }
 @media (max-width: 1199px) {
   .bodywebsite .content_scene_cat .content_scene_cat_bg {

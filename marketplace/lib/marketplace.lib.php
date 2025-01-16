@@ -59,6 +59,11 @@ function marketplaceAdminPrepareHead()
 	$head[$h][1] = $langs->trans("MarketPlaceSetupPayment");
 	$head[$h][2] = 'setuppayment';
 	$h++;
+
+	$head[$h][0] = dol_buildpath("/marketplace/admin/setupcaptchagoogle.php", 1);
+	$head[$h][1] = $langs->trans("MarketPlaceSetupCaptchaCoogle");
+	$head[$h][2] = 'setupcaptchagoogle';
+	$h++;
 	
 	$head[$h][0] = dol_buildpath("/marketplace/admin/importtip.php", 1);
 	$head[$h][1] = $langs->trans("ImportTip");
