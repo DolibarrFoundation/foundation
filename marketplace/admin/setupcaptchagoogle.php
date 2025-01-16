@@ -16,9 +16,9 @@
  */
 
 /**
- * \file    marketplace/admin/setuppayment.php
+ * \file    marketplace/admin/setupcaptchagoogle.php
  * \ingroup marketplace
- * \brief   Marketplace setup page for payment.
+ * \brief   Marketplace setup page for CaptchaGoogle.
  */
 
 // Load Dolibarr environment
@@ -165,6 +165,16 @@ $item->helpText = $langs->transnoentities('AnHelpMessage');
 //$item->fieldOutputOverride = false; // set this var to override field output
 */
 
+$item = $formSetup->newItem('MARKETPLACE_GOOGLE_RECAPTCHA_SITE_KEY');
+$item->helpText = $langs->trans("MARKETPLACE_GOOGLE_RECAPTCHA_SITE_KEY_HELP");
+$item->cssClass = 'minwidth500';
+
+$item = $formSetup->newItem('MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY');
+$item->helpText = $langs->trans("MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY_HELP");
+$item->cssClass = 'minwidth500';
+
+$formSetup->newItem('MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM')->setAsYesNo();
+
 $setupnotempty += count($formSetup->items);
 
 
@@ -219,73 +229,17 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'title_setup');
 
 // Configuration header
 $head = marketplaceAdminPrepareHead();
-print dol_get_fiche_head($head, 'setuppayment', $langs->trans($page_name), -1, "fa-store");
+print dol_get_fiche_head($head, 'setupcaptchagoogle', $langs->trans($page_name), -1, "fa-store");
+
+if (!empty($formSetup->items)) {
+	print $formSetup->generateOutput(true);
+	print '<br>';
+}
+
 
 global $dolibarr_main_url_root;
 $param = '';
 
-// Define $urlwithroot
-$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
-$urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
-//$urlwithroot=DOL_MAIN_URL_ROOT;					// This is to use same domain name than current
-
-$enabledisablehtml = $langs->trans("UseFrameDesc").' ';
-if (!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	// Button off, click to enable
-	$enabledisablehtml .= '<a class="reposition valignmiddle" href="'.$_SERVER["PHP_SELF"].'?action=setMARKETPLACE_PAYMENT_IN_FRAME&token='.newToken().$param.'">';
-	$enabledisablehtml .= img_picto($langs->trans("Disabled"), 'switch_off');
-	$enabledisablehtml .= '</a>';
-} else {
-	// Button on, click to disable
-	$enabledisablehtml .= '<a class="reposition valignmiddle" href="'.$_SERVER["PHP_SELF"].'?action=delMARKETPLACE_PAYMENT_IN_FRAME&token='.newToken().$param.'">';
-	$enabledisablehtml .= img_picto($langs->trans("Activated"), 'switch_on');
-	$enabledisablehtml .= '</a>';
-}
-print $enabledisablehtml;
-print '<input type="hidden" id="MEMBER_ENABLE_PUBLIC" name="MEMBER_ENABLE_PUBLIC" value="'.(!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME') ? 0 : 1).'">';
-
-print '<br><br>';
-
-// Setup page goes here
-print '<span class="opacitymedium">'."<br>\n";
-print $langs->trans("MarketplaceSetupPaymentPage1")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
-print "<br>\n";
-print $langs->trans("MarketplaceSetupPaymentPage2")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
-print '</span>'."<br>\n";
-print '<br><br>';
-
-
-if (!getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	print "You are using the payment outside of a frame, no particular setup is required for this module.\n";
-	print "<br>\n";
-	print '<span class="red">This mode is not yet supported. Use the frame mode !!!!!!!!</span><br>'."\n";
-}
-
-if (getDolGlobalString('MARKETPLACE_PAYMENT_IN_FRAME')) {
-	print "<small>You are using the payment inside a frame, you must modify the virtual host of you marketplace web server to
-	include a proxy of the payment URLs to the URLs of your Dolibarr backend server.</small><br>\n";
-	print '<textarea class="quatrevingtpercent" rows=20>';
-	print "# If you need include the payment page into a frame of the marketplace website,\n";
-	print "# you need to make a proxy redirection of URLs required for the payment to your backoffice public payment pages\n";
-	print "#SSLProxyEngine On\n";
-	print "#SSLProxyVerify none\n";
-	print "#SSLProxyCheckPeerCN off\n";
-	print "#SSLProxyCheckPeerName off\n";
-	print "#ProxyPreserveHost Off\n";
-	print '#ProxyPass "/public/payment/" "'.$urlwithroot.'/public/payment/'."\n";
-	print '#ProxyPassReverse "/public/payment/" "'.$urlwithroot.'/public/payment/'."\n";
-	print '#ProxyPass "/includes/" "'.$urlwithroot.'/includes/'."\n";
-	print '#ProxyPassReverse "/includes/" "'.$urlwithroot.'/includes/'."\n";
-	print '#ProxyPass "/theme/" "'.$urlwithroot.'/theme/'."\n";
-	print '#ProxyPassReverse "/theme/" "'.$urlwithroot.'/theme/'."\n";
-	print '#ProxyPass "/core/js/" "'.$urlwithroot.'/core/js/'."\n";
-	print '#ProxyPassReverse "/core/js/" "'.$urlwithroot.'/core/js/'."\n";
-	print "</textarea><br>\n";
-}
 
 print "<br>\n";
 
