@@ -331,6 +331,8 @@ print '<form name="stats" method="POST" action="'.$_SERVER["PHP_SELF"].'">';
 print '<input type="hidden" name="token" value="'.newToken().'">';
 print '<input type="hidden" name="mode" value="'.$mode.'">';
 
+
+print '<div class="div-table-responsive-no-min">';
 print '<table class="noborder centpercent">';
 print '<tr class="liste_titre"><td class="liste_titre" colspan="2">'.$langs->trans("Filter").'</td></tr>';
 // Company
@@ -359,6 +361,8 @@ print $form->selectarray('year', $arrayyears, $year, 0, 0, 0, '', 0, 0, 0, '', '
 print '</td></tr>';
 print '<tr><td class="center" colspan="2"><input type="submit" name="submit" class="button small" value="'.$langs->trans("Refresh").'"></td></tr>';
 print '</table>';
+print '</div>';
+
 print '</form>';
 print '<br><br>';
 
@@ -420,6 +424,7 @@ print '</div><div class="fichetwothirdright">';
 
 
 // Show graphs
+print '<div class="div-table-responsive-no-min">';
 print '<table class="border centpercent"><tr class="pair nohover"><td align="center">';
 if ($mesg) {
 	print $mesg;
@@ -431,7 +436,7 @@ if ($mesg) {
 	print $px3->show();
 }
 print '</td></tr></table>';
-
+print '</div>';
 
 print '</div></div>';
 print '<div class="clearboth"></div>';
