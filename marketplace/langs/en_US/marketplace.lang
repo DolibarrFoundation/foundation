@@ -302,3 +302,4 @@ MARKETPLACE_GOOGLE_RECAPTCHA_SITE_KEY_HELP=Enter the public key provided by Goog
 MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY=Google reCAPTCHA Secret Key
 MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY_HELP=Enter the private key provided by Google to verify reCAPTCHA responses securely. Ensure this key is kept confidential.
 MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM=Activate Google Captcha on the registration form
+captchaFail=Captcha failed. Score : %s
