@@ -167,7 +167,7 @@ marketplace=Marketplace
 MARKETPLACE_WELCOME_EMAIL_TEMPLATE=Email template for the welcome email sent on account creation
 MARKETPLACE_fORGOT_PASSWORD_EMAIL_TEMPLATE=Forgot password Email
 passwordResetRequest=Password reset request
-marketplaceWelcomeEmailContent=__(Hello)__ __USER_NAME__,<p>Welcome to <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> __(marketplace)__! Your account has been successfully created, giving you access to a variety of products.</p><p>Log in now to explore our complete catalog!</p><p>Best regards,</p><p>The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
+marketplaceWelcomeEmailContent=__(Hello)__ __USER_NAME__,<p>Welcome to <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>! Your account has been successfully created, giving you access to a variety of products.</p><p>Log in now to explore our complete catalog!</p><p>Best regards,</p><p>The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
 marketplaceResetPasswordEmailContent=__(Hello)__ __USER_NAME__,<p>We received a request to reset your password for your account at <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace.</p><p>If you did not make this request, you can ignore this email. No changes will be made to your account.</p><p>To reset your password, please click the link below:</p><p><a href="__PASSWORD__RESET_LINK__">Reset your password</a></p><p>If you have any questions, feel free to contact our support team.</p><p>Best regards,</p><p>The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p>
 emailDoesNotExist =This email does not exist
 resetPassword= Reset password
