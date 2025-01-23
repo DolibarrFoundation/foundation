@@ -126,6 +126,19 @@ body {
   max-width: 100%;
   height: auto;
 }
+.bodywebsite img.image-preview {
+    max-height: 100px;
+    max-width: 200px;
+}
+
+.bodywebsite .opacitymedium {
+    opacity: 0.5;
+}
+
+.bodywebsite .divhomepage .rte {
+    margin-top: 20px;
+}
+
 .bodywebsite p {
   margin: 0 0 9px;
 }
@@ -200,6 +213,49 @@ body {
 .bodywebsite .row:after {
   clear: both;
 }
+
+.bodywebsite .wordbreak {
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.bodywebsite .valignmiddle {
+    vertical-align: middle;
+}
+
+div#content.marketplacelightbox2 {
+    height: calc(100% - 100px);
+    width: calc(100% - 200px);
+    margin-left: 100px;
+}
+div#content.marketplacelightbox2 img {
+    object-fit: none;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    max-width: 100%;
+}
+div#lightbox p {
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    div#content.marketplacelightbox2 {
+        height: calc(100% - 40px);
+        width: calc(100% - 8px);
+        margin-left: 4px;
+    }
+    div#content.marketplacelightbox2 img {
+        padding: 5px;
+        object-fit: none;
+        height: 50%;
+        width: 100%;
+    }
+    
+    .pb-center-column.col-xs-12.col-sm-5.col-md-5.productlabel {
+        padding-top: 20px;
+    }
+}
+
 @media (min-width: 768px) {
   .bodywebsite .container {
     max-width: 750px;
@@ -449,6 +505,10 @@ a#cke_56 {
   .bodywebsite header .row #header_logo img {
     margin: 0 auto;
   }
+  
+  .bodywebsite .content_sortPagiBar .sortPagiBar {
+      padding-bottom: 8px;
+  }
 }
 @media (min-width: 767px) {
   .bodywebsite header .row #header_logo + .col-sm-4 + .col-sm-4 {
@@ -480,7 +540,6 @@ a#cke_56 {
   border: 1px solid #c90;
   font-weight: 700;
   color: #000;
-  background: url(/dolibarr18/dolibarr/htdocs/viewimage.php?modulepart=medias&file=image/dolistore3/themes/dolibarr-bootstrap/img/bg_bt.gif) repeat-x 0 0 #f4b61b;
   cursor: pointer;
   white-space: normal;
   text-align: left;
@@ -527,15 +586,9 @@ a#cke_56 {
   color: #fff;
   padding: 0;
   font-weight: 700;
-  background: #43b754;
-  background: -moz-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #43b754), color-stop(2%, #41b757), color-stop(4%, #41b854), color-stop(6%, #43b756), color-stop(38%, #41b354), color-stop(40%, #44b355), color-stop(66%, #45af55), color-stop(74%, #41ae53), color-stop(91%, #42ac52), color-stop(94%, #41ae55), color-stop(96%, #43ab54), color-stop(100%, #42ac52));
-  background: -webkit-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -o-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -ms-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: linear-gradient(to bottom, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
+  background: #a45931;
   border: 1px solid;
-  border-color: #399a49 #247f32 #1a6d27 #399a49;
+  border-color: #845931;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -563,14 +616,7 @@ a#cke_56 {
   }
 }
 .bodywebsite .button.button-medium:hover {
-  background: #3aa04c;
-  background: -moz-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3aa04c), color-stop(100%, #3aa04a));
-  background: -webkit-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -o-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -ms-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: linear-gradient(to bottom, #3aa04c 0, #3aa04a 100%);
-  border-color: #196f28 #399a49 #399a49 #258033;
+  background: #845931;
 }
 .bodywebsite .button.exclusive-medium {
   font-size: 17px;
@@ -678,6 +724,12 @@ a#cke_56 {
   color: #3a3939;
   margin-bottom: 0;
 }
+
+.bodywebsite .page-product-box iframe {
+    width: 100%;
+    height: 450px;
+}
+
 .bodywebsite .price {
   font-size: 13px;
   color: #777;
@@ -1030,6 +1082,39 @@ a#cke_56 {
 .bodywebsite #editorial_block_center .rte p {
   color: #666;
 }
+
+.bodywebsite .new-box {
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    overflow: hidden;
+    height: 85px;
+    width: 85px;
+    text-align: center;
+    z-index: 1;
+    color: #FFF;
+}
+.bodywebsite .new-label {
+    font: 700 14px / 12px Arial, Helvetica, sans-serif;
+    color: white;
+    background: #a45931;
+    text-transform: uppercase;
+    opacity: 0.8;
+    padding: 9px 0 7px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.24);
+    width: 130px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: -33px;
+    top: 16px;
+    z-index: 1;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    /* transform: rotate(-45deg); */
+}
+
+
 .bodywebsite ul.product_list .product-name {
   display: inline-block;
   width: 100%;
@@ -1270,13 +1355,21 @@ a#cke_56 {
   padding: 9px;
   margin-bottom: 13px;
   position: relative;
+  background: #fff;
+  /* border-color: #e2dec8; */
+  /* box-shadow: 2px 2px 10px #ddd; */
 }
 @media (max-width: 767px) {
-  .bodywebsite ul.product_list.grid > li .product-container .product-image-container {
-    max-width: 290px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .bodywebsite ul.product_list.grid > li .product-container {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .bodywebsite ul.product_list.grid > li .product-container .product-image-container {
+        max-width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 .bodywebsite ul.product_list.grid > li .product-container .product-image-container .content_price {
   position: absolute;
@@ -1337,7 +1430,6 @@ a#cke_56 {
   margin: 0 6px 4px;
 }
 .bodywebsite ul.product_list.grid > li .product-container .functional-buttons {
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/functional-bt-shadow.png) repeat-x;
   padding: 11px 0 5px;
 }
 @media (min-width: 1200px) {
@@ -1436,6 +1528,7 @@ a#cke_56 {
 }
 .bodywebsite ul.product_list.list > li .product-desc {
   margin-bottom: 15px;
+  text-align: justify;
 }
 @media (max-width: 479px) {
   .bodywebsite ul.product_list.list > li .center-block {
@@ -1737,10 +1830,7 @@ a#cke_56 {
   background: #f8f8f8a1;
   color: #686666;
 }
-.bodywebsite ul.product_list.grid > li .product-container .product-image-container {
-  border-color: #e2dec8;
-  background: #fff;
-}
+
 .bodywebsite .sale-label:after,
 .bodywebsite .sale-label:before {
   border-color: #a45931 transparent transparent;
@@ -1798,10 +1888,15 @@ a#cke_56 {
 .bodywebsite .sale-label {
   background: #a45931;
 }
-.bodywebsite ul.product_list.grid > li .product-container .product-image-container .product_img_link,
-.bodywebsite ul.product_list.grid > li .product-container .product-image-container .product_img_link img {
-  background: #f1e8e3;
+
+.bodywebsite ul.product_list.grid > li .product-container .product-image-container .product_img_link {
+    height: 100%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 @media (min-width: 768px) {
   .bodywebsite .footer-container {
     background-color: #111 !important;
@@ -1996,7 +2091,7 @@ a#cke_56 {
   overflow: hidden;
   padding: 20px 20px 10px;
   margin: 0;
-  background: #f6f6f6;
+  background: #eaeaea;
 }
 .bodywebsite .cart_block .cart-buttons a {
   width: 100%;
@@ -2012,12 +2107,12 @@ a#cke_56 {
 .bodywebsite .cart_block .cart-buttons a#button_order_cart span {
   padding: 7px 0;
   font-size: 1.1em;
-  border: solid 1px #63c473;
-  background: #43b155;
+  border: solid 1px #845931;
+  background: #a45931;
 }
 .bodywebsite .cart_block .cart-buttons a#button_order_cart:hover span {
-  border: solid 1px #358c43;
-  background: #2e7a3a;
+  border: solid 1px #845931;
+  background: #845931;
   color: #fff;
 }
 .bodywebsite #header .cart_block {
@@ -2046,10 +2141,6 @@ a#cke_56 {
 }
 .bodywebsite #header .cart_block .cart-prices {
   border: none;
-  background: url(/dolibarr18/dolibarr/htdocs/viewimage.php?modulepart=medias&file=image/dolistore3/themes/dolibarr-bootstrap/css/modules/img/cart-shadow.png) repeat-x #3d3d3d;
-}
-.bodywebsite #header .cart_block .cart-buttons {
-  background: url(/dolibarr18/dolibarr/htdocs/viewimage.php?modulepart=medias&file=image/dolistore3/themes/dolibarr-bootstrap/css/modules/img/cart-shadow.png) repeat-x #333;
 }
 .bodywebsite #header .block_content {
   margin-bottom: 0;
@@ -2092,7 +2183,7 @@ a#cke_56 {
 }
 .bodywebsite #layer_cart .layer_cart_product h2 {
   font: 400 23px/29px Arial, Helvetica, sans-serif;
-  color: #46a74e;
+  color: #a45931;
   margin-bottom: 22px;
   padding-right: 100px;
 }
@@ -2738,26 +2829,7 @@ a#cke_56 {
 .bodywebsite .unvisible {
   display: none;
 }
-.bodywebsite a.button,
-.bodywebsite span.button {
-  position: relative;
-  display: inline-block;
-  padding: 5px 7px;
-  border: 1px solid #c90;
-  font-weight: 700;
-  color: #000;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/bg_bt.gif) repeat-x 0 0 #f4b61b;
-  cursor: pointer;
-  white-space: normal;
-  text-align: left;
-}
-.bodywebsite a.button:hover {
-  text-decoration: none;
-  background-position: left -50px;
-}
-.bodywebsite a.button:active {
-  background-position: left -100px;
-}
+
 .bodywebsite .button.button-small span {
   display: block;
   padding: 3px 8px;
@@ -2782,15 +2854,9 @@ a#cke_56 {
   color: #fff;
   padding: 0;
   font-weight: 700;
-  background: #43b754;
-  background: -moz-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #43b754), color-stop(2%, #41b757), color-stop(4%, #41b854), color-stop(6%, #43b756), color-stop(38%, #41b354), color-stop(40%, #44b355), color-stop(66%, #45af55), color-stop(74%, #41ae53), color-stop(91%, #42ac52), color-stop(94%, #41ae55), color-stop(96%, #43ab54), color-stop(100%, #42ac52));
-  background: -webkit-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -o-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -ms-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: linear-gradient(to bottom, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
+  background: #a45931;
   border: 1px solid;
-  border-color: #399a49 #247f32 #1a6d27 #399a49;
+  border-color: #a45931;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -2822,14 +2888,7 @@ a#cke_56 {
   }
 }
 .bodywebsite .button.button-medium:hover {
-  background: #3aa04c;
-  background: -moz-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3aa04c), color-stop(100%, #3aa04a));
-  background: -webkit-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -o-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -ms-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: linear-gradient(to bottom, #3aa04c 0, #3aa04a 100%);
-  border-color: #196f28 #399a49 #399a49 #258033;
+  background: #845931;
 }
 .bodywebsite .btn.button-minus,
 .bodywebsite .btn.button-plus {
@@ -3664,7 +3723,7 @@ a#cke_56 {
   }
 }
 .bodywebsite .box-info-product .exclusive:after {
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/border-1.gif) repeat-y 0 0;
+  background: url(/themes/dolibarr-bootstrap/img/border-1.gif) repeat-y 0 0;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -4254,42 +4313,6 @@ a#cke_56 {
   font-weight: 700;
   padding: 10px 20px 22px;
 }
-.bodywebsite .cart_block .cart-prices .cart-prices-line {
-  overflow: hidden;
-  border-bottom: 1px solid #515151;
-  padding: 7px 0;
-}
-.bodywebsite .cart_block .cart-prices .cart-prices-line.last-line {
-  border: none;
-}
-.bodywebsite .cart_block .cart-buttons {
-  overflow: hidden;
-  padding: 20px 20px 10px;
-  margin: 0;
-  background: #f6f6f6;
-}
-.bodywebsite .cart_block .cart-buttons a {
-  width: 100%;
-  float: left;
-  text-align: center;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-.bodywebsite .cart_block .cart-buttons a#button_order_cart {
-  margin-right: 0;
-  border: none;
-}
-.bodywebsite .cart_block .cart-buttons a#button_order_cart span {
-  padding: 7px 0;
-  font-size: 1.1em;
-  border: solid 1px #63c473;
-  background: #43b155;
-}
-.bodywebsite .cart_block .cart-buttons a#button_order_cart:hover span {
-  border: solid 1px #358c43;
-  background: #2e7a3a;
-  color: #fff;
-}
 .bodywebsite #header .cart_block {
   position: absolute;
   top: 95px;
@@ -4316,10 +4339,6 @@ a#cke_56 {
 }
 .bodywebsite #header .cart_block .cart-prices {
   border: none;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/cart-shadow.png) repeat-x #3d3d3d;
-}
-.bodywebsite #header .cart_block .cart-buttons {
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/cart-shadow.png) repeat-x #333;
 }
 .bodywebsite #header .block_content {
   margin-bottom: 0;
@@ -4353,12 +4372,6 @@ a#cke_56 {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
-}
-.bodywebsite #layer_cart .layer_cart_product h2 {
-  font: 400 23px/29px Arial, Helvetica, sans-serif;
-  color: #46a74e;
-  margin-bottom: 22px;
-  padding-right: 100px;
 }
 .bodywebsite #header .cart_block a,
 .bodywebsite #header .cart_block .price {
@@ -4529,7 +4542,7 @@ a#cke_56 {
 }
 .bodywebsite .content_scene_cat .content_scene_cat_bg {
   padding: 18px 10px 10px 42px;
-  background-color: #111 !important;
+  background-color: #a45931 !important;
 }
 @media (max-width: 1199px) {
   .bodywebsite .content_scene_cat .content_scene_cat_bg {
@@ -4612,7 +4625,7 @@ a#cke_56 {
   margin-bottom: 10px;
 }
 .bodywebsite .content_sortPagiBar .sortPagiBar #productsSortForm select {
-  max-width: 192px;
+  max-width: 220px;
   float: left;
 }
 @media (max-width: 991px) {
@@ -4775,7 +4788,7 @@ a#cke_56 {
   border: 1px solid white;
   padding: 2px 8px;
   display: block;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/pagination-li.gif) 0 0 repeat-x #fbfbfb;
+/*  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/pagination-li.gif) 0 0 repeat-x #fbfbfb; */
 }
 .bodywebsite .top-pagination-content ul.pagination li > a:hover span,
 .bodywebsite .bottom-pagination-content ul.pagination li > a:hover span {
@@ -5563,7 +5576,8 @@ a#cke_56 {
 .bodywebsite #lightbox p {
   text-align: center;
   color: #fff;
-  font-size: 12px;
+  font-size: 1.5em;
+  padding-top: 8px;
 }
 .bodywebsite #lightbox img {
   box-shadow: 0 0 25px #111;
@@ -5766,11 +5780,11 @@ a#cke_56 {
   height: 15px;
 }
 .bodywebsite #cms #center_column .testimonials .inner span.before {
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/bl-before-bg.png) no-repeat;
+/* background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/bl-before-bg.png) no-repeat; */
   margin-right: 8px;
 }
 .bodywebsite #cms #center_column .testimonials .inner span.after {
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/bl-after-bg.png) no-repeat;
+/*  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/bl-after-bg.png) no-repeat; */
   margin-left: 8px;
 }
 .bodywebsite #cms #center_column .testimonials:after {
@@ -5782,7 +5796,7 @@ a#cke_56 {
   left: 21px;
   width: 15px;
   height: 16px;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/testimon-after.gif) no-repeat;
+/*  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/img/testimon-after.gif) no-repeat; */
 }
 .bodywebsite #cms #center_column .testimonials + p {
   padding-left: 45px;
@@ -6044,16 +6058,10 @@ a#cke_56 {
   color: white;
   padding: 0;
   font-weight: bold;
-  background: #43b754;
-  background: -moz-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #43b754), color-stop(2%, #41b757), color-stop(4%, #41b854), color-stop(6%, #43b756), color-stop(38%, #41b354), color-stop(40%, #44b355), color-stop(66%, #45af55), color-stop(74%, #41ae53), color-stop(91%, #42ac52), color-stop(94%, #41ae55), color-stop(96%, #43ab54), color-stop(100%, #42ac52));
-  background: -webkit-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -o-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: -ms-linear-gradient(top, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
-  background: linear-gradient(to bottom, #43b754 0, #41b757 2%, #41b854 4%, #43b756 6%, #41b354 38%, #44b355 40%, #45af55 66%, #41ae53 74%, #42ac52 91%, #41ae55 94%, #43ab54 96%, #42ac52 100%);
+  background: #a45931;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#43b754', endColorstr='#42ac52', GradientType=0);
   border: 1px solid;
-  border-color: #399a49 #247f32 #1a6d27 #399a49;
+  border-color: #845931;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -6082,15 +6090,8 @@ a#cke_56 {
   }
 }
 .bodywebsite .button.button-medium:hover {
-  background: #3aa04c;
-  background: -moz-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3aa04c), color-stop(100%, #3aa04a));
-  background: -webkit-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -o-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: -ms-linear-gradient(top, #3aa04c 0, #3aa04a 100%);
-  background: linear-gradient(to bottom, #3aa04c 0, #3aa04a 100%);
+  background: #845931;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3aa04c', endColorstr='#3aa04a', GradientType=0);
-  border-color: #196f28 #399a49 #399a49 #258033;
 }
 .bodywebsite .button.button-medium.exclusive {
   border-color: #db8600 #d98305 #c86d26 #d98305;
@@ -6965,17 +6966,6 @@ h3 {
   position: relative;
   border: 1px solid;
   border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;
-  background-image: -webkit-gradient(
-    linear,
-    50% 0,
-    50% 100%,
-    color-stop(0%, #f7f7f7),
-    color-stop(100%, #ededed)
-  );
-  background-image: -webkit-linear-gradient(#f7f7f7, #ededed);
-  background-image: -moz-linear-gradient(#f7f7f7, #ededed);
-  background-image: -o-linear-gradient(#f7f7f7, #ededed);
-  background-image: linear-gradient(#f7f7f7, #ededed);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -8075,7 +8065,7 @@ ul.step li.step_current span {
     padding-left: 38px;
   }
   ul.step li.step_current span:after {
-    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-a.png)
+/*    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-a.png) */
       right 0 no-repeat;
   }
 }
@@ -8110,7 +8100,7 @@ ul.step li.step_todo span {
     padding-left: 38px;
   }
   ul.step li.step_todo span:after {
-    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-current.png)
+/*    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-current.png) */
       right 0 no-repeat;
   }
 }
@@ -8142,13 +8132,13 @@ ul.step li.step_done a {
     padding-left: 38px;
   }
   ul.step li.step_done a:after {
-    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-done.png)
+/*    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-done.png) */
       right 0 no-repeat;
   }
 }
 @media (min-width: 992px) {
   ul.step li.step_done.step_done_last a:after {
-    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-done-last.png)
+/*    background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/order-step-done-last.png) */
       right 0 no-repeat;
   }
 }
@@ -8298,11 +8288,17 @@ ul.step li em {
   color: #a45931;
   font-weight: bold;
 }
+#contact_us_section, #about_payement_section, #Terms_section, #Legal_notice_section {
+    text-align: justify;
+}
 .icon-file-text::before {
   content: "\f15c";
 }
 .info-order i {
-  font-size: 20px;
+    font-size: 20px;
+}
+.info-order.box {
+    font-size: 1.2em !important;
 }
 .table-bordered-block-order-detail {
   border: 1px solid #d6d4d4 !important;
@@ -8472,7 +8468,6 @@ input.button_large, input.button_large_disabled {
   border: 1px solid #cc9900;
   font-weight: bold;
   color: black;
-  background: url(https://www.dolistore.com/themes/dolibarr-bootstrap/css/../img/bg_bt.gif) repeat-x 0 0 #f4b61b;
   cursor: pointer;
   white-space: normal;
   text-align: left;
@@ -8952,6 +8947,10 @@ button[disabled], html input[disabled] {
 }
 .centpercent.websitebar {
   width: 100% !important;
+}
+
+.refundLine{
+    background-color: #dbdbdb;
 }
 <?php // BEGIN PHP
 $tmp = ob_get_contents(); ob_end_clean(); dolWebsiteOutput($tmp, "css");
