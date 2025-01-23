@@ -696,41 +696,27 @@ class modMarketplace extends DolibarrModules
 
 		// Delete email templates if action is reload
 		if ($action == 'reload') {
-			if (!empty(getDolGlobalInt("MARKETPLACE_WELCOME_EMAIL_TEMPLATE"))) {
-				$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(welcomeToMarketplace)' AND module = 'marketplace'";
-				$result = $this->db->query($delete_email_sql);
-				if ($result) {
-					dolibarr_del_const($this->db, 'MARKETPLACE_WELCOME_EMAIL_TEMPLATE', $conf->entity);
-				} else {
-					$this->error = $this->db->lasterror();
-				}
+			$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(welcomeToMarketplace)' AND module = 'marketplace'";
+			$result = $this->db->query($delete_email_sql);
+			if (!$result) {
+				$this->error = $this->db->lasterror();
 			}
-			if (!empty(getDolGlobalInt("MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE"))) {
-				$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(resetPasswordMarketplace)' AND module = 'marketplace'";
-				$result = $this->db->query($delete_email_sql);
-				if ($result) {
-					dolibarr_del_const($this->db, 'MARKETPLACE_FORGOT_PASSWORD_EMAIL_TEMPLATE', $conf->entity);
-				} else {
-					$this->error = $this->db->lasterror();
-				}
+
+			$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(resetPasswordMarketplace)' AND module = 'marketplace'";
+			$result = $this->db->query($delete_email_sql);
+			if (!$result) {
+				$this->error = $this->db->lasterror();
 			}
-			if (!empty(getDolGlobalInt("MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE"))) {
-				$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(BuyerOrderConfirmation)' AND module = 'marketplace'";
-				$result = $this->db->query($delete_email_sql);
-				if ($result) {
-					dolibarr_del_const($this->db, 'MARKETPLACE_BUYER_ORDER_CONFIRMATION_TEMPLATE', $conf->entity);
-				} else {
-					$this->error = $this->db->lasterror();
-				}
+
+			$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(BuyerOrderConfirmation)' AND module = 'marketplace'";
+			$result = $this->db->query($delete_email_sql);
+			if (!$result) {
+				$this->error = $this->db->lasterror();
 			}
-			if (!empty(getDolGlobalInt("MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE"))) {
-				$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(SellerOrderNotification)' AND module = 'marketplace'";
-				$result = $this->db->query($delete_email_sql);
-				if ($result) {
-					dolibarr_del_const($this->db, 'MARKETPLACE_SELLERS_ORDER_CONFIRMATION_TEMPLATE', $conf->entity);
-				} else {
-					$this->error = $this->db->lasterror();
-				}
+			$delete_email_sql = "DELETE FROM ".MAIN_DB_PREFIX."c_email_templates WHERE label = '(SellerOrderNotification)' AND module = 'marketplace'";
+			$result = $this->db->query($delete_email_sql);
+			if (!$result) {
+				$this->error = $this->db->lasterror();
 			}
 		}
 
@@ -911,7 +897,7 @@ class modMarketplace extends DolibarrModules
 				$website->otherlang = "en,fr,de,it,es";
 			}
 			$result = $website->create($user);
-			
+
 			if ($result <= 0) {
 				setEventMessages($website->error, $website->errors, 'errors');
 			} else {
