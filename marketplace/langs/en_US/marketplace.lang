@@ -305,3 +305,4 @@ MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM=Activate Google Captcha on the regist
 captchaFail=Captcha failed. Score : %s
 invoiceRef=Invoice Reference
 Refunded=Refunded
+VendorArea=Vendor Area 
