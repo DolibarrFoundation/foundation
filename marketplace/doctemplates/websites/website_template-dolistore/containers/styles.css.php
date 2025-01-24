@@ -221,6 +221,9 @@ body {
 .bodywebsite .valignmiddle {
     vertical-align: middle;
 }
+.bodywebsite .right {
+    text-align: right;    
+}
 
 div#content.marketplacelightbox2 {
     height: calc(100% - 100px);
@@ -728,6 +731,10 @@ a#cke_56 {
 .bodywebsite .page-product-box iframe {
     width: 100%;
     height: 450px;
+}
+
+.bodywebsite .nowraponall {
+    white-space: nowrap;
 }
 
 .bodywebsite .price {
