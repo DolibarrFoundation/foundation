@@ -133,9 +133,9 @@ class LangTest extends TestCase
 			print "Result for checking we don't have bad percent char = ".$result.PHP_EOL;
 			$this->assertTrue($result === false, 'Found a bad percent char ％ instead of % in file '.$code.'/'.$file);
 
-                        $result = strpos($filecontent, '%,');   // A special % char we don't want. We want the common one.
-                        //print $prefix."Result for checking we don't have bad percent char = ".$result.PHP_EOL;
-                        $this->assertTrue($result === false, 'Found a bad percent char % in file '.$code.'/'.$file);
+			$result = strpos($filecontent, '%,');   // A special % char we don't want. We want the common one.
+			//print $prefix."Result for checking we don't have bad percent char = ".$result.PHP_EOL;
+			$this->assertTrue($result === false, 'Found a bad percent char % in file '.$code.'/'.$file);
 
 			$result = preg_match('/%n/m', $filecontent);	// A sequence of char we don't want
 			$this->assertTrue($result == 0, 'Found a sequence %n in the translation file '.$code.'/'.$file.'. We probably want %s');
