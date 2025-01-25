@@ -167,7 +167,7 @@ marketplace=Marktplaats
 MARKETPLACE_WELCOME_EMAIL_TEMPLATE=E-mailsjabloon voor de welkomstmail die wordt verzonden bij het aanmaken van een account
 MARKETPLACE_fORGOT_PASSWORD_EMAIL_TEMPLATE=Wachtwoord vergeten E-mail
 passwordResetRequest=Verzoek om wachtwoord opnieuw in te stellen
-marketplaceWelcomeEmailContent=__(Hello)__ __USER_NAME__,<p>Welcome to <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>! Your account has been successfully created, giving you access to a variety of products.</p><p>Log in now to explore our complete catalog!</p><p>Best regards,</p><p>The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
+marketplaceWelcomeEmailContent=__(Hallo)__ __GEBRUIKERSNAAM__,<p>Welkom bij <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>! Uw account is succesvol aangemaakt en geeft u toegang tot diverse producten.</p><p>Log nu in om onze volledige catalogus te bekijken!</p><p>Met vriendelijke groet,</p><p>De <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
 marketplaceResetPasswordEmailContent=__(Hallo)__ __USER_NAME__,<p>We hebben een verzoek ontvangen om uw wachtwoord opnieuw in te stellen voor uw account op <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Marketplace.</p><p>Als u dit verzoek niet hebt gedaan, kunt u deze e-mail negeren. Er worden geen wijzigingen aangebracht in uw account.</p><p>Om uw wachtwoord opnieuw in te stellen, klikt u op de onderstaande link:</p><p><a href="__PASSWORD__RESET_LINK__">Uw wachtwoord opnieuw instellen</a></p><p>Als u vragen heeft, neem dan gerust contact op met ons ondersteuningsteam.</p><p>Met vriendelijke groet,</p><p>Het <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p>
 emailDoesNotExist =Dit e-mailadres bestaat niet
 resetPassword= Wachtwoord opnieuw instellen
@@ -303,3 +303,6 @@ MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY=Google reCAPTCHA geheime sleutel
 MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY_HELP=Voer de persoonlijke sleutel in die Google heeft verstrekt om reCAPTCHA-reacties veilig te verifiëren. Zorg ervoor dat deze sleutel vertrouwelijk blijft.
 MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM=Activeer Google Captcha op het registratieformulier
 captchaFail=Captcha mislukt. Score: %s
+invoiceRef=Factuurreferentie
+Refunded=Terugbetaald
+VendorArea=Verkopersgebied

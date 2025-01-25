@@ -167,7 +167,7 @@ marketplace=Markedsplads
 MARKETPLACE_WELCOME_EMAIL_TEMPLATE=E-mail-skabelon til velkomstmailen sendt ved oprettelse af konto
 MARKETPLACE_fORGOT_PASSWORD_EMAIL_TEMPLATE=Glemt adgangskode E-mail
 passwordResetRequest=Anmodning om nulstilling af adgangskode
-marketplaceWelcomeEmailContent=__(Hello)__ __USER_NAME__,<p>Welcome to <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>! Your account has been successfully created, giving you access to a variety of products.</p><p>Log in now to explore our complete catalog!</p><p>Best regards,</p><p>The <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
+marketplaceWelcomeEmailContent=__(Hej)__ __USER_NAME__,<p>Velkommen til <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>! Din konto er blevet oprettet, hvilket giver dig adgang til en række produkter.</p><p>Log ind nu for at udforske vores komplette katalog !</p><p>Med venlig hilsen</p><p>Den <strong>__[MAIN_INFO_SOCIETE_NOM]__</strong>Team</p>
 marketplaceResetPasswordEmailContent=__(Hej)__ __USER_NAME__,<p>Vi modtog en anmodning om at nulstille din adgangskode til din konto på <strong>__[MAIN_INFO_SOCIETE_NOM]__ </strong> Markedsplads.</p><p>Hvis du ikke har fremsat denne anmodning kan ignorere denne e-mail. Der vil ikke blive foretaget ændringer på din konto.</p><p>For at nulstille din adgangskode skal du klikke på linket nedenfor:</p><p><a href="__PASSWORD__RESET_LINK__">Nulstil din adgangskode</a></p><p>Hvis du har spørgsmål, er du velkommen til at kontakte vores supportteam.</p> <p>Med venlig hilsen</p><p>Den<strong>__[MAIN_INFO_SOCIETE_NOM]__</strong> Team</p>
 emailDoesNotExist =Denne e-mail findes ikke
 resetPassword= Nulstil adgangskode
@@ -303,3 +303,6 @@ MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY=Google reCAPTCHA hemmelig nøgle
 MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY_HELP=Indtast den private nøgle leveret af Google for at bekræfte reCAPTCHA-svar sikkert. Sørg for, at denne nøgle holdes fortrolig.
 MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM=Aktiver Google Captcha på registreringsformularen
 captchaFail=Captcha mislykkedes. Score : %s
+invoiceRef=Faktura reference
+Refunded=Refunderet
+VendorArea=Sælgerområde

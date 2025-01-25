@@ -303,3 +303,6 @@ MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY=Clau secreta de Google reCAPTCHA
 MARKETPLACE_GOOGLE_RECAPTCHA_SECRET_KEY_HELP=Introduïu la clau privada proporcionada per Google per verificar les respostes reCAPTCHA de manera segura. Assegureu-vos que aquesta clau es mantingui confidencial.
 MARKETPLACE_GOOGLE_RECAPTCHA_REGISTER_FORM=Activa Google Captcha al formulari de registre
 captchaFail=Captcha ha fallat. Puntuació: %s
+invoiceRef=Referència de la factura
+Refunded=Reemborsat
+VendorArea=Àrea de venedors
