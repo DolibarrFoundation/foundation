@@ -33,33 +33,54 @@
 
 	# Products rewrite rules
 	RewriteCond %{REQUEST_URI} ^/([a-z]{2})/([a-z\-]+)/([0-9]+)-([a-z0-9\-]+)\.html$ [NC]
-	RewriteRule ^ /product.php?title=%4&extid=%3&languages=%1 [L,R=301]
-	    
+	RewriteRule ^ /product.php?title=%4&extid=%3&l=%1 [L,R=301]
+	
 	# Categories rewrite rules
 	RewriteCond %{REQUEST_URI} ^/([a-z]{2})/([0-9]{1,2})-([a-z\-]+)$ [NC]
-	RewriteRule ^ /index.php?title=%3&extcat=%2&languages=%1 [L,R=301]
-	   
+	RewriteRule ^ /index.php?title=%3&extcat=%2&l=%1 [L,R=301]
+	
 	# Search
 	RewriteCond %{REQUEST_URI} /recherche [NC]
-	RewriteCond %{QUERY_STRING} ^search_query=(.*)$
+	RewriteCond %{QUERY_STRING} search_query=([^&]+)
 	RewriteRule ^ /index.php?controller=search&website=marketplace&search_query=%1 [L,R=301]
-	   
+	
+	RewriteCond %{REQUEST_URI} ^/search [NC]
+	RewriteCond %{QUERY_STRING} search_query=([^&]+)
+	RewriteRule ^ /index.php?controller=search&website=marketplace&search_query=%1 [L,R=301]
+	
+	
 	# Other
-	RewriteRule ^/en/new-products /index.php?title=New%20products&cat=21&list=new&language=en [L,R=permanent]
-	RewriteRule ^/fr/nouveaux-produits /index.php?title=Nouveaux%20produits&cat=21&list=new&language=fr [L,R=permanent]
-	RewriteRule ^/es/new-products /index.php?title=Nuevos%20productos&cat=21&list=new&language=es [L,R=permanent]
-	RewriteRule ^/it/nuovi-prodotti /index.php?title=Nuovi%20prodotti&cat=21&list=new&language=it [L,R=permanent]
-	RewriteRule ^/de/nouveaux-produits /index.php?title=New%20products&cat=21&list=new&language=de [L,R=permanent]
+	RewriteRule ^/en/new-products /index.php?title=new-products&cat=21&list=new&l=en [L,R=permanent]
+	RewriteRule ^/fr/nouveaux-produits /index.php?title=nouveaux-produits&cat=21&list=new&l=fr [L,R=permanent]
+	RewriteRule ^/es/new-products /index.php?title=nuevos-productos&cat=21&list=new&l=es [L,R=permanent]
+	RewriteRule ^/it/nuovi-prodotti /index.php?title=nuovi-prodotti&cat=21&list=new&l=it [L,R=permanent]
+	RewriteRule ^/de/nouveaux-produits /index.php?title=new-products&cat=21&list=new&l=de [L,R=permanent]
 	
 	# Page of language
-	RewriteRule ^/([a-z]{2})$ /index.php?language=$1 [L,R=permanent]
-	RewriteRule ^/([a-z]{2})/$ /index.php?language=$1 [L,R=permanent]
+	RewriteRule ^/([a-z]{2})$ /index.php?l=$1 [L,R=permanent]
+	RewriteRule ^/([a-z]{2})/$ /index.php?l=$1 [L,R=permanent]
+
+
+	# Redirection invisible vers un autre site
+	SSLProxyEngine On
+	SSLProxyVerify none
+	SSLProxyCheckPeerCN off
+	SSLProxyCheckPeerName off
+	ProxyPreserveHost Off
+	ProxyPass "/public/payment/" "https://admin.dolibarr.org/public/payment/"
+	ProxyPassReverse "/public/payment/" "https://admin.dolibarr.org/public/payment/"
+	ProxyPass "/includes/" "https://admin.dolibarr.org/includes/"
+	ProxyPassReverse "/includes/" "https://admin.dolibarr.org/includes/"
+	ProxyPass "/theme/" "https://admin.dolibarr.org/theme/"
+	ProxyPassReverse "/theme/" "https://admin.dolibarr.org/theme/"
+	ProxyPass "/core/js/" "https://admin.dolibarr.org/core/js/"
+	ProxyPassReverse "/core/js/" "https://admin.dolibarr.org/core/js/"
+
 
 ## 7. Add this rules in Dolibarr Apache Configurations
 
    <IfModule mod_headers.c>
         Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-        Header always set x-frame-options "SAMEORIGIN"
     </IfModule>
 
 ## 8. Set File Permissions
