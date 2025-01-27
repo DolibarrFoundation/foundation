@@ -1091,9 +1091,9 @@ a#cke_56 {
 }
 
 .bodywebsite .new-box {
-    left: -4px;
+    left: 0px;
     position: absolute;
-    top: -4px;
+    top: 0px;
     overflow: hidden;
     height: 85px;
     width: 85px;
@@ -1102,7 +1102,7 @@ a#cke_56 {
     color: #FFF;
 }
 .bodywebsite .new-label {
-    font: 700 14px / 12px Arial, Helvetica, sans-serif;
+    font: 600 12px / 12px Arial, Helvetica, sans-serif;
     color: white;
     background: #a45931;
     text-transform: uppercase;
@@ -1113,12 +1113,37 @@ a#cke_56 {
     text-align: center;
     display: block;
     position: absolute;
-    left: -33px;
+    left: -35px;
     top: 16px;
     z-index: 1;
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
-    /* transform: rotate(-45deg); */
+}
+.bodywebsite .version-box {
+    left: 70px;
+    position: absolute;
+    top: -17px;
+    overflow: hidden;
+    height: 16px;
+    width: 54px;
+    text-align: center;
+    z-index: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.bodywebsite .version-label {
+    font-size: 0.8em;
+    color: #999;
+    background: #eee;
+    text-transform: uppercase;
+    height: 16px;
+    width: 54px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    padding-top: 1px;
+    padding-left: 2px;
 }
 
 
@@ -1395,7 +1420,7 @@ a#cke_56 {
 }
 .bodywebsite ul.product_list.grid > li .product-container h5 {
   padding: 0 15px 7px;
-  min-height: 53px;
+  min-height: 50px;
 }
 @media (min-width: 1200px) {
   .bodywebsite ul.product_list.grid > li .product-container .comments_note {
@@ -1761,6 +1786,10 @@ a#cke_56 {
 .bodywebsite #search_block_top {
   padding-top: 30px;
 }
+.bodywebsite #search_info_section {
+    padding-bottom: 10px;
+}
+
 .bodywebsite #search_block_top #searchbox {
   float: left;
   width: 100%;
@@ -1867,8 +1896,8 @@ a#cke_56 {
 .bodywebsite .price.product-price {
   color: #a45931;
 }
-.bodywebsite .old-price {
-  color: #b1b0b0;
+.bodywebsite .old-price, .bodywebsite .original-price {
+  color: #b1b0b0 !important;
 }
 .bodywebsite ul.product_list.grid > li .product-container:hover {
   background: #fff;
@@ -4517,7 +4546,7 @@ a#cke_56 {
   margin: 0 0 20px;
   border: 1px solid #d6d4d4;
   background: #fbfbfb;
-  border-bottom-width: 3px;
+  /* border-bottom-width: 3px; */
 }
 .bodywebsite .info-table-box tbody tr td{
   padding: 12px 20px !important;
@@ -4719,6 +4748,10 @@ a#cke_56 {
   padding: 12px 0 12px 0;
   position: relative;
 }
+.bodywebsite .top-pagination-content {
+    padding-bottom: 50px;
+}
+
 .bodywebsite .top-pagination-content div.pagination,
 .bodywebsite .bottom-pagination-content div.pagination {
   margin: 0;
