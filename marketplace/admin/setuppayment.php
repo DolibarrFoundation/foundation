@@ -253,8 +253,8 @@ print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
 print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
 print "<br>\n";
 print $langs->trans("MarketplaceSetupPaymentPage2")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Pro")."<br>\n";
-print "* ".$langs->trans("MarketplaceSetupPaymentPage1Cons")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage2Pro")."<br>\n";
+print "* ".$langs->trans("MarketplaceSetupPaymentPage2Cons")."<br>\n";
 print '</span>'."<br>\n";
 print '<br><br>';
 
