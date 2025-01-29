@@ -2,3 +2,4 @@
 User-agent: *
 Allow: /public/
 Disallow: /administrator/
+Crawl-delay: 2

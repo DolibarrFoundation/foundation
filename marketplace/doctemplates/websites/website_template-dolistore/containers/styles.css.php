@@ -1556,6 +1556,9 @@ select {
   background: 0 0;
   word-wrap: break-word
 }
+.bodywebsite #page .rte.fulldescription {
+    overflow-x: auto;   
+}
 .bodywebsite .breadcrumb {
   display: inline-block;
   z-index: 1;

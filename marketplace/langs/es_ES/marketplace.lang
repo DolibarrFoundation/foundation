@@ -89,7 +89,7 @@ zipFileModuleInfo=Nuevo archivo: El tamaño máximo del archivo es: 80 MB
 agreeTermsWebsite=He leído y estoy de acuerdo con los términos y condiciones de uso disponibles en la página
 suggestToAddWikiPage=Soy consciente de que la recomendación de la fundación dolibarr para mí es agregar una página dedicada a mi módulo en wiki.dolibarr.org visible en <a href="https://wiki.dolibarr.org/index.php/Category:Complementary_modules" target="_blank">https://wiki.dolibarr.org/index.php/Category:Complementary_modules</a>, esto aumenta la visibilidad de mi módulo y puede aumentar las cifras de ventas y las ganancias.
 englishFieldsRequired=Todos los campos en inglés son obligatorios.
-fieldTooLong=El campo %s es demasiado largo: %s caracteres como máximo (número actual %s).
+fieldTooLong=El campo %s (%s) es demasiado largo: %s caracteres como máximo (número actual %s).
 requiredCategory=Debes elegir una categoría.
 fileNameLengthError=El nombre del archivo no debe tener más de 48 caracteres, incluido el prefijo ("módulo_", "tema_" o "sitio web_"), el sufijo de la versión y la extensión (".zip", por ejemplo).
 fileSizeHigherServerLimit=¡El tamaño del archivo es mayor que el límite del servidor!
