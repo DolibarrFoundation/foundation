@@ -1169,7 +1169,13 @@ $(document).ready(function(){
         
         var form_data = $(this).serialize();
         var button_content = $(this).find('button[type=submit]');
-        button_content.html('<span>Adding...</span>'); //Loading button text
+
+        if (!button_content.data('original-text')) {
+            button_content.data('original-text', button_content.html());
+        }
+        
+        button_content.html('<span>' + (button_content.data('loading-text') || 'Loading...') + '</span>');
+
         $.ajax({ //make ajax request
             url: shopping_cart_url,
             type: "POST",
@@ -1198,7 +1204,8 @@ $(document).ready(function(){
             }).fadeIn('fast');
             $("#layer_cart").css("display", "block");
 
-            button_content.html('<span>Add to Cart</span>'); //reset button text to original text
+            button_content.html(button_content.data('original-text'));
+            
             if($('.shopping-cart-box').css('display') == 'block'){ //if cart box is still visible
                 $('.cart-box').trigger( 'click' ); //trigger click to update the cart box.
             }

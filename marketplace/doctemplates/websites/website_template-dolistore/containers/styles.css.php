@@ -5354,7 +5354,7 @@ div.info {
   background: #eff8fc
 }
 .price-field {
-  max-width: 53%!important
+  max-width: 80px !important;
 }
 .version-field {
   float: left;

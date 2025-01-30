@@ -317,3 +317,6 @@ paymentFailedProcessed=Your payment has failed; you were not debited
 paymentSuccessProcessed=Your payment has been successfully processed.
 requiredValidityDuration=Validity duration must be a positive number of days
 accessToUpdatesAndDownloads=Access to updates and downloads
+expiredOn=Expired on
+StatusFieldInfo=The module will be validated within 15 days.
+loadingText=Loading...
